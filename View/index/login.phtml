@@ -1,0 +1,22 @@
+<h2>login</h2>
+<?php 
+   
+
+    if (!empty($this->dataView['err'])) {
+        echo '<p class="err">'. implode('<br>', $this->dataView['err']) . '</p>';
+    }
+    if (!empty($this->dataview['msg'])) {
+        echo '<p class="msg">'. implode('<br>', $this->dataView['msg']) . '</p>';
+    }
+    
+
+?>
+
+<form action="" method="post">
+
+    <input type="text" name="uname" id="" placeholder="username">
+    <input type="password" name="pwd" id="" placeholder="password">
+    <input type="submit" value="login">
+
+
+</form>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout public</title>
+</head>
+<body>
+    <h1>layout front</h1>
+    <?php
+        if (!empty($_SESSION['auth'])) {
+            echo "Xin Chaof ". $_SESSION['auth']['username'];
+
+            echo "<br><a href='" . base_path . "/?act=logout'>thoat</a>";
+
+        }else{
+            echo "<br><a href='" . base_path . "/?act=login'>dang nhap</a>";
+        }
+       
+    
+    
+    ?>
+
+    <hr>
+    <h3>content view:</h3>
+    <?php
+        $this ->showContent();
+    ?>
+    <hr>
+    <h2>footer</h2>
+</body>
+</html>

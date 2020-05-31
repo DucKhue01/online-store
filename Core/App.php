@@ -31,7 +31,7 @@ class App{
        $actName = str_replace(' ', '', $actName);
       
 
-       echo "<br> ten ham $actName ";
+    //    echo "<br> ten ham $actName ";
 
 
        if (method_exists($objController, $actName)) {
