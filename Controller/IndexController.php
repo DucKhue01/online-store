@@ -42,7 +42,18 @@
                         //     print_r($userInfo);
                         // echo '/<pre>';
 
-                        if ($userInfo['passwd']==$passwd) {
+                        if ($userInfo['passwd'] == $passwd) {
+
+
+
+                            $listPms = $objModel -> loadPmsByRole($userInfo['id_role']);
+
+                            $userInfo['list_pms'] = $listPms;
+
+
+                           
+
+
                            unset($userInfo['passwd']);
                            $_SESSION['auth'] = $userInfo;
 
@@ -55,13 +66,6 @@
 
 
                         }
-
-
-
-
-
-
-
                         
                     }else{
                         $data['err'][] = 'khong ton tai tai khoan' . $username;

@@ -1,7 +1,7 @@
 <?php
 
 class App{
-    public function run(){
+   public function run(){
        $ct  = isset($_GET['ct']) ? $_GET['ct'] : 'index';
        $act = isset($_GET['act']) ? $_GET['act'] : 'index';
     //    echo  $act;
@@ -10,6 +10,21 @@ class App{
        $classCT = ucwords($classCT);
        $classCT = str_replace(' ', '', $classCT);
        $classCT = $classCT . "Controller";
+
+
+       $actName = str_replace( '-', ' ', $act );
+       $actName = ucwords($actName);
+       $actName = str_replace(' ', '', $actName);
+      
+
+       // CHAN quyen
+
+      $this ->checkACL($classCT,$actName);
+
+
+
+
+
 
     //    echo $classCT;
 
@@ -26,10 +41,10 @@ class App{
        //tao doi tuong
 
        $objController = new $classCT;
-       $actName = str_replace( '-', ' ', $act );
-       $actName = ucwords($actName);
-       $actName = str_replace(' ', '', $actName);
-      
+
+
+
+     
 
     //    echo "<br> ten ham $actName ";
 
@@ -39,9 +54,46 @@ class App{
        }else{
         die("NOT EXISTS METHOD <b>$classCT::$actName</b>"  );
        }
+   }
 
 
 
-    }
+
+
+   public function checkACL($controllerClassName, $actionName){
+      
+      $ct = str_replace('Controller', '', $controllerClassName);
+
+      $strCheck = $ct . '.' . $actionName;
+      $arr_public_action = ['Index.Index', 'Index.Login'];
+
+      if (in_array($strCheck, $arr_public_action)) {
+         return true;
+      }
+      // kiem tra dang nhap
+
+      if (empty($_SESSION['auth'])) {
+         header('Location:' . base_path . '/?act=login');
+         die("ban chua dang nhap");
+      }
+
+      $userinfo = $_SESSION['auth'];
+
+      if (in_array($strCheck, $userinfo['list_pms'])) {
+         return true;
+      }
+
+      die (' ban chua duoc phan quyen chuc nang nay ');
+
+
+
+
+
+
+   }
+
+
+
+
    
 }

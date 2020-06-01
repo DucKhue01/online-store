@@ -16,4 +16,8 @@
             $this ->RenderView('user.list-all',$list_user,'layout-back');
 
         }
+
+        public function ViewProfile() {
+            $this ->RenderView('user.view-profile',[],'layout-front');
+        }
     }

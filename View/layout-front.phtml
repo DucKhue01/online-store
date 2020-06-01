@@ -9,8 +9,15 @@
     <h1>layout front</h1>
     <?php
         if (!empty($_SESSION['auth'])) {
-            echo "Xin Chaof ". $_SESSION['auth']['username'];
 
+            echo '<pre>';
+                print_r($_SESSION['auth']);
+            echo '</pre>';
+
+            
+
+
+            echo "Xin Chaof ". $_SESSION['auth']['username'];
             echo "<br><a href='" . base_path . "/?act=logout'>thoat</a>";
 
         }else{
