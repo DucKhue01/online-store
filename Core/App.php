@@ -65,7 +65,7 @@ class App{
       $ct = str_replace('Controller', '', $controllerClassName);
 
       $strCheck = $ct . '.' . $actionName;
-      $arr_public_action = ['Index.Index', 'Index.Login'];
+      $arr_public_action = ['Index.Index', 'Index.Login','Products.ListAll'];
 
       if (in_array($strCheck, $arr_public_action)) {
          return true;
@@ -78,12 +78,15 @@ class App{
       }
 
       $userinfo = $_SESSION['auth'];
+            // echo '<pre>';
+            //     print_r($_SESSION['auth']);
+            // echo '</pre>';
 
       if (in_array($strCheck, $userinfo['list_pms'])) {
          return true;
       }
 
-      die (' ban chua duoc phan quyen chuc nang nay ');
+      die (' ban chua duoc phan quyen chuc nang nay ' . $strCheck);
 
 
 

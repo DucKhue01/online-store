@@ -49,11 +49,7 @@
                             $listPms = $objModel -> loadPmsByRole($userInfo['id_role']);
 
                             $userInfo['list_pms'] = $listPms;
-
-
-                           
-
-
+                            
                            unset($userInfo['passwd']);
                            $_SESSION['auth'] = $userInfo;
 

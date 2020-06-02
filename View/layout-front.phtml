@@ -4,18 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Layout public</title>
+    <style type="text/css">
+            .list-prod li{
+                list-style: none;
+                display: inline-block;
+                width:200px;
+                border: 1px solid #ccc;
+                margin: 10px
+            }
+
+    </style>
+
+
 </head>
 <body>
     <h1>layout front</h1>
     <?php
         if (!empty($_SESSION['auth'])) {
-
-            echo '<pre>';
-                print_r($_SESSION['auth']);
-            echo '</pre>';
-
-            
-
 
             echo "Xin Chaof ". $_SESSION['auth']['username'];
             echo "<br><a href='" . base_path . "/?act=logout'>thoat</a>";
@@ -24,9 +29,13 @@
             echo "<br><a href='" . base_path . "/?act=login'>dang nhap</a>";
         }
        
-    
-    
     ?>
+
+    <a href="<?php echo base_path ?>?ct=products&act=list-all">danh sach san pham</a>
+    <a href="<?php echo base_path ?>">trang chu</a>
+        
+
+
 
     <hr>
     <h3>content view:</h3>
