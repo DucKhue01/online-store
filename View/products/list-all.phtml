@@ -10,7 +10,7 @@
 
                 echo '<img width="100" src="'. base_path .'/Public/files/products/' . $row['image'] . '"/>';
                 echo "<br><a href='#'>" . $row['name'] . '</a>';
-                echo "<br><a href='#'>" . "mua" . '</a>';
+                echo "<br><a href='". base_path ."?ct=products&act=add-cart&id={$row['id']}'>" . "mua" . '</a>';
                 
             echo "</li>";
         }

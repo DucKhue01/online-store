@@ -20,6 +20,23 @@
 <body>
     <h1>layout front</h1>
     <?php
+        //phan hien thi so luong trong gio hang
+        echo '<pre>';
+            print_r($_SESSION);
+        echo '/<pre>';
+        
+      
+            
+                if (!empty($_SESSION['cart'])) {
+                    echo "Cart(" . count($_SESSION['cart']) . ")";
+                }
+            
+
+
+
+
+
+
         if (!empty($_SESSION['auth'])) {
 
             echo "Xin Chaof ". $_SESSION['auth']['username'];
@@ -33,6 +50,8 @@
 
     <a href="<?php echo base_path ?>?ct=products&act=list-all">danh sach san pham</a>
     <a href="<?php echo base_path ?>">trang chu</a>
+
+
         
 
 
