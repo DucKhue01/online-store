@@ -2,8 +2,13 @@
     class ProductsModel extends DB{
         private $tb = 'tb_book';
         public function getAll($params = []){
-            $sql = 'SELECT * FROM tb_book';
 
+            $sql = 'SELECT * FROM tb_book ';
+            if (!empty($params['id_in'])) {
+
+                $sql .= 'WHERE id IN ('. $params['id_in'] .')';  
+                // echo $sql;
+            }
 
             $res = $this -> Query($sql);
             $data = [];

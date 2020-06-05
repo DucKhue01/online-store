@@ -1,0 +1,46 @@
+<h2>xem gio hang</h2>
+
+
+    <table border="1" cellpadding="10">
+        <tr>
+            <td>stt</td> <td>anh</td> <td>tensp</td> <td>so luong</td> <td>don gia</td> <td>thanh tien</td>
+        </tr>
+        <?php
+            $stt = 0;
+            $sumAll = 0;
+            foreach ($this->dataView['list_prod'] as $row ) {
+                $stt++;
+                $id_prod = $row['id'];
+                $amount = $_SESSION['cart'][$id_prod];
+                $price  = number_format($row['price']);
+                $sum = $amount *$row['price'];
+                $sumAll += $sum;
+                $sum = number_format($sum);
+                echo"<tr>
+                        <td>{$stt}</td> 
+                        <td> <img src='" . base_path . "/Public/files/products/{$row['image']}' width='50'>   </td> 
+                        <td>{$row['name']}</td>
+                        <td>{$amount}</td> 
+                        <td>{$price}</td>
+                        <td>$sum</td>
+                    </tr>";
+            };
+        ?>
+        <tr>
+            <td colspan="5">tong tien</td> <td><?php echo number_format($sumAll)?></td>
+        </tr>
+    
+    </table>
+
+    
+<?php
+
+echo '<pre>';
+    print_r($_SESSION['cart']);
+echo '</pre>';
+
+// echo '<pre>';
+//     print_r($this->dataView);
+// echo '</pre>';
+
+?>

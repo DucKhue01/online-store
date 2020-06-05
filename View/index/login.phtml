@@ -1,22 +1,323 @@
-<h2>login</h2>
-<?php 
-   
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/Public/css/login.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    
+<?php   
+        if (!empty($this->dataView['err'])) {
+            echo '<p class="err">'. implode('<br>', $this->dataView['err']) . '</p>';
+        }
+        if (!empty($this->dataview['msg'])) {
+            echo '<p class="msg">'. implode('<br>', $this->dataView['msg']) . '</p>';
+        }
+    ?>
 
-    if (!empty($this->dataView['err'])) {
-        echo '<p class="err">'. implode('<br>', $this->dataView['err']) . '</p>';
-    }
-    if (!empty($this->dataview['msg'])) {
-        echo '<p class="msg">'. implode('<br>', $this->dataView['msg']) . '</p>';
-    }
+
+
+    
+    <style type="text/css">
+        @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Roboto:wght@300;500&display=swap");
+        /* * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        } */
+        section {
+        min-height: 95vh;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        }
+        .container {
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.199);
+        padding: 50px 30px;
+        border-radius: 10px;
+        min-width: 800px;
+        max-width: 1000px;
+        min-height: 500px;
+        margin: 0 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #f6f5f7;
+        position: relative;
+        overflow: hidden;
+        }
+
+        .container .form {
+        position: absolute;
+        top: 0;
+        text-align: center;
+        padding: 0 20px;
+        width: 50%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #f6f5f7;
+        transition: 0.7s ease-in-out transform;
+        overflow: hidden;
+        }
+        .container .form.sign-in-form {
+        left: 0;
+        }
+        .container .form.sign-up-form {
+        right: 0;
+        }
+        .container .form .wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.7s ease-in-out transform;
+        }
+        .container .form.sign-in-form .wrapper {
+        transform: translateX(100%);
+        }
+        .container .sign-in-form.active .wrapper {
+        transform: translateX(0);
+        }
+        .container .form.sign-up-form .wrapper {
+        transform: translateX(-100%);
+        }
+        .container .sign-up-form.active .wrapper {
+        transform: translateX(0);
+        }
+        .container .form h1 {
+        font-family: "Montserrat";
+        font-size: 40px;
+        font-weight: 300;
+        text-transform: capitalize;
+        margin-bottom: 10px;
+        }
+        .container .form p {
+        font-family: "Roboto";
+        font-weight: 500;
+        font-size: 14px;
+        text-transform: capitalize;
+        line-height: 25px;
+        margin-bottom: 30px;
+        }
+        .container .form input {
+        display: block;
+        width: 300px;
+        margin: 0 auto;
+        margin-bottom: 15px;
+        height: 35px;
+        font-family: "Montserrat";
+        font-size: 14px;
+        padding-left: 15px;
+        border: none;
+        background-color: rgba(199, 197, 197, 0.425);
+        outline: none;
+        }
+        .container .form input::placeholder {
+        color: rgba(0, 0, 0, 0.658);
+        }
+        .overlay-container .overlay button,
+        .container .form button {
+        padding: 10px 50px;
+        border: none;
+        outline: none;
+        font-family: "Montserrat";
+        font-size: 18px;
+        background-color: rgb(31, 92, 51);
+        cursor: pointer;
+        color: #f6f5f7;
+        }
+        .container .overlay-container {
+        position: absolute;
+        background-color: rgb(31, 92, 51);
+        left: 0;
+        top: 0;
+        width: 50%;
+        height: 100%;
+        overflow: hidden;
+        transition: 0.7s ease-in-out transform;
+        }
+
+        .container .overlay-container .overlay {
+        background-image: url(https://lienminh.garena.vn/images/Tung_Sung_Cao_Su/Tristana_Splash_10.jpg);
+        background-size: cover;
+        background-position: center center;
+        position: absolute;
+        left: 0%;
+        /* background-color: rebeccapurple; */
+        width: 200%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        transition: 0.7s ease-in-out transform;
+        z-index: 1;
+        }
+        .container .overlay::after {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        left: 0;
+        top: 0;
+        background-color: rgb(31, 92, 51);
+        z-index: -1;
+        opacity: 0.9;
+        }
+        .overlay-container .overlay .overlay-left,
+        .overlay-container .overlay .overlay-right {
+        flex-basis: 50%;
+        text-align: center;
+        }
+        .overlay-container .overlay .overlay-left {
+        }
+        .overlay-container .overlay h1 {
+        font-family: "Montserrat";
+        font-size: 40px;
+        font-weight: 300;
+        color: white;
+        }
+        .overlay-container .overlay p {
+        color: white;
+        font-family: "Roboto";
+        font-size: 25px;
+        font-weight: 300;
+        }
+        .overlay-container .overlay button {
+        background-color: white;
+        color: rgb(31, 92, 51);
+        margin-top: 20px;
+        }
+
+        /* For The Bottom Banner  */
+        .bottom-text {
+        background: black;
+        color: white;
+        text-align: center;
+        width: 100%;
+        padding: 5px 0;
+        position: absolute;
+        bottom: 0;
+        z-index: 9999;
+        }
+        .bottom-text h2 {
+        font-size: 14px;
+        font-family: "Montserrat";
+        font-weight: 500;
+        }
+        .bottom-text a {
+        color: aqua;
+        }
+
+    </style>
+  
+    <section>
+        <div class="container">
+            <div class="form sign-in-form">
+                <div class="wrapper">
+                    <form action="" method="post">
+                        <h1>Sign In</h1>
+                        <p>use your email and password to sign in</p>
+                        <input type="text" placeholder="User Name" name="uname">
+                        <input type="password" placeholder="Password" name="pwd">
+                        
+                        <button type="submit">Sign In</button>
+                    </form>
+                </div>
+            </div>
+            <div class="form sign-up-form active">
+                <div class="wrapper">
+                    <form action="" method="post">
+                        <h1>Sign up</h1>
+                        <p>Please, provide all the correct info to create an account</p>
+                        <input type="text" placeholder="Full Name">
+                        <input type="email" placeholder="Email">
+                        <input type="password" placeholder="password">
+                        <button type="submit">Sign Up</button>
+                    </form>
+                </div>
+            </div>
+            <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-left">
+                    <h1>Create Account</h1>
+                    <p>or</p>
+                    <button id="signInButton">Log In</button>
+                </div>
+                <div class="overlay-right">
+                    <h1>Please, Log In</h1>
+                    <p>or</p>
+                    <button id="signUpButton">Create Account</button>
+                </div>
+            </div>
+            </div>
+            <div class="bottom-text">
+        <h2>Made with ❤ by one duckhue01 <a href="https://www.facebook.com/duckhue01" target="_blank">one hundered incognitos</a></h2>
+        </div>
+        </div>       
+    </section>
+
+<!-- For The Bottom banner -->
+
     
 
-?>
+    <script>
+        const signIn = document.querySelector("#signInButton");
+        const signUp = document.querySelector("#signUpButton");
+        const signInForm = document.querySelector(".container .sign-in-form");
+        const signUpForm = document.querySelector(".container .sign-up-form");
+        const overlay_container = document.querySelector(
+        ".container .overlay-container"
+        );
+        const overlay = document.querySelector(
+        ".container .overlay-container .overlay"
+        );
 
-<form action="" method="post">
+        signIn.addEventListener("click", () => {
+        overlay_container.style.transform = "translateX(100%)";
+        overlay.style.transform = "translateX(-50%)";
+        signInForm.classList.add("active");
+        signUpForm.classList.remove("active");
+        });
+        signUp.addEventListener("click", () => {
+        overlay_container.style.transform = "translateX(0)";
+        overlay.style.transform = "translateX(0)";
+        signUpForm.classList.add("active");
+        signInForm.classList.remove("active");
+        });
 
-    <input type="text" name="uname" id="" placeholder="username">
-    <input type="password" name="pwd" id="" placeholder="password">
-    <input type="submit" value="login">
+    
+    </script>
 
 
-</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+</body>
+</html>

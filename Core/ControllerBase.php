@@ -15,9 +15,9 @@
                 }else{
                     die("khong ton tai file layout: " . basename($this -> layout)) ;
                 }
-             }else{
+            }else{
                  $this->showContent();
-             }
+            }
 
         }
 

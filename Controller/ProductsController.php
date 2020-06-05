@@ -39,4 +39,27 @@
             header("Location: $chuyen_trang");
         }
 
+        public function ViewCart(){
+            $data = ['srr'=>[],'smg'=>[]];
+
+            if (!empty($_SESSION['cart'])) {
+                $list_id_prod = array_keys($_SESSION['cart']);
+                $list_id_prod = implode(',', $list_id_prod);
+                // echo $list_id_prod;
+                
+                $objModelProd = new ProductsModel();
+                $list_prod = $objModelProd ->getALl(['id_in'=>$list_id_prod]);
+
+                $data['list_prod'] = $list_prod;
+                
+                
+            }
+
+
+
+
+            
+            $this ->RenderView('products.view-cart',$data,'layout-front');
+        }
+
     }   

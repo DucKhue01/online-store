@@ -8,6 +8,7 @@
             
 
             $this -> RenderView('index.home', [] , 'layout-front');
+            
         }
 
         public function login(){
