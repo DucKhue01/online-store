@@ -1,41 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="/Public/css/login.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-    
-<?php   
-        if (!empty($this->dataView['err'])) {
-            echo '<p class="err">'. implode('<br>', $this->dataView['err']) . '</p>';
-        }
-        if (!empty($this->dataview['msg'])) {
-            echo '<p class="msg">'. implode('<br>', $this->dataView['msg']) . '</p>';
-        }
-    ?>
+<script src="https://kit.fontawesome.com/d6818a8498.js" crossorigin="anonymous"></script>
 
-
-
-    
-    <style type="text/css">
+<style type="text/css">
         @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Roboto:wght@300;500&display=swap");
-        /* * {
+        * {
         padding: 0;
         margin: 0;
         box-sizing: border-box;
-        } */
+        }
+
+        .memo{
+            width:300px;
+            height:10vh;
+        }
+        .container-login #exit{
+            position:absolute;
+            /* left:100px;
+            top:100px; */
+            z-index:100;
+            top:10px;
+            right:10px;
+        }
         section {
         min-height: 95vh;
         width: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
+        /* visibility:hidden; */
+        position:fixed;
+        z-index:100;
+        top:0px;
+        z-index:100;
         }
-        .container {
+        .container-login {
         box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.199);
         padding: 50px 30px;
         border-radius: 10px;
@@ -51,7 +48,7 @@
         overflow: hidden;
         }
 
-        .container .form {
+        .container-login .form {
         position: absolute;
         top: 0;
         text-align: center;
@@ -65,13 +62,13 @@
         transition: 0.7s ease-in-out transform;
         overflow: hidden;
         }
-        .container .form.sign-in-form {
+        .container-login .form.sign-in-form {
         left: 0;
         }
-        .container .form.sign-up-form {
+        .container-login .form.sign-up-form {
         right: 0;
         }
-        .container .form .wrapper {
+        .container-login .form .wrapper {
         position: absolute;
         top: 0;
         left: 0;
@@ -82,26 +79,26 @@
         justify-content: center;
         transition: 0.7s ease-in-out transform;
         }
-        .container .form.sign-in-form .wrapper {
+        .container-login .form.sign-in-form .wrapper {
         transform: translateX(100%);
         }
-        .container .sign-in-form.active .wrapper {
+        .container-login .sign-in-form.active .wrapper {
         transform: translateX(0);
         }
-        .container .form.sign-up-form .wrapper {
+        .container-login .form.sign-up-form .wrapper {
         transform: translateX(-100%);
         }
-        .container .sign-up-form.active .wrapper {
+        .container-login .sign-up-form.active .wrapper {
         transform: translateX(0);
         }
-        .container .form h1 {
+        .container-login .form h1 {
         font-family: "Montserrat";
         font-size: 40px;
         font-weight: 300;
         text-transform: capitalize;
         margin-bottom: 10px;
         }
-        .container .form p {
+        .container-login .form p {
         font-family: "Roboto";
         font-weight: 500;
         font-size: 14px;
@@ -109,7 +106,7 @@
         line-height: 25px;
         margin-bottom: 30px;
         }
-        .container .form input {
+        .container-login .form input {
         display: block;
         width: 300px;
         margin: 0 auto;
@@ -122,11 +119,11 @@
         background-color: rgba(199, 197, 197, 0.425);
         outline: none;
         }
-        .container .form input::placeholder {
+        .container-login .form input::placeholder {
         color: rgba(0, 0, 0, 0.658);
         }
-        .overlay-container .overlay button,
-        .container .form button {
+        .overlay-container-login .overlay button,
+        .container-login .form button {
         padding: 10px 50px;
         border: none;
         outline: none;
@@ -136,7 +133,7 @@
         cursor: pointer;
         color: #f6f5f7;
         }
-        .container .overlay-container {
+        .container-login .overlay-container-login {
         position: absolute;
         background-color: rgb(31, 92, 51);
         left: 0;
@@ -147,7 +144,7 @@
         transition: 0.7s ease-in-out transform;
         }
 
-        .container .overlay-container .overlay {
+        .container-login .overlay-container-login .overlay {
         background-image: url(https://lienminh.garena.vn/images/Tung_Sung_Cao_Su/Tristana_Splash_10.jpg);
         background-size: cover;
         background-position: center center;
@@ -162,37 +159,37 @@
         transition: 0.7s ease-in-out transform;
         z-index: 1;
         }
-        .container .overlay::after {
+        .container-login .overlay::after {
         content: "";
         position: absolute;
         height: 100%;
         width: 100%;
-        left: 0;
+        left: 0%;
         top: 0;
         background-color: rgb(31, 92, 51);
         z-index: -1;
         opacity: 0.9;
         }
-        .overlay-container .overlay .overlay-left,
-        .overlay-container .overlay .overlay-right {
+        .overlay-container-login .overlay .overlay-left,
+        .overlay-container-login .overlay .overlay-right {
         flex-basis: 50%;
         text-align: center;
         }
-        .overlay-container .overlay .overlay-left {
+        .overlay-container-login .overlay .overlay-left {
         }
-        .overlay-container .overlay h1 {
+        .overlay-container-login .overlay h1 {
         font-family: "Montserrat";
         font-size: 40px;
         font-weight: 300;
         color: white;
         }
-        .overlay-container .overlay p {
+        .overlay-container-login .overlay p {
         color: white;
         font-family: "Roboto";
         font-size: 25px;
         font-weight: 300;
         }
-        .overlay-container .overlay button {
+        .overlay-container-login .overlay button {
         background-color: white;
         color: rgb(31, 92, 51);
         margin-top: 20px;
@@ -217,24 +214,21 @@
         .bottom-text a {
         color: aqua;
         }
+        .change{
+            visibility:hidden;
+        }
 
     </style>
-  
-    <section>
-        <div class="container">
+<div>
+        
+</div>
+<section class="container01">
+
+        <div class="container-login">
+            <a id="exit" href='<?php echo base_path?>'><i class="fas fa-times"></i></a>
+       
             <div class="form sign-in-form">
-                <div class="wrapper">
-                    <form action="" method="post">
-                        <h1>Sign In</h1>
-                        <p>use your email and password to sign in</p>
-                        <input type="text" placeholder="User Name" name="uname">
-                        <input type="password" placeholder="Password" name="pwd">
-                        
-                        <button type="submit">Sign In</button>
-                    </form>
-                </div>
-            </div>
-            <div class="form sign-up-form active">
+            
                 <div class="wrapper">
                     <form action="" method="post">
                         <h1>Sign up</h1>
@@ -244,9 +238,43 @@
                         <input type="password" placeholder="password">
                         <button type="submit">Sign Up</button>
                     </form>
+                    
                 </div>
             </div>
-            <div class="overlay-container">
+            <div class="form sign-up-form active">
+                <div class="wrapper">
+                    <form action="<?php echo base_path?>?act=login" method="post">
+                        <h1>Sign In</h1>
+                        <p>use your email and password to sign in</p>
+                        <input type="text" placeholder="User Name" name="uname">
+                        <input type="password" placeholder="Password" name="pwd">
+                        
+                        <button type="submit" id="signin">Sign In</button>
+                        
+                        <div class="memo">
+                            <?php
+                                $this ->showContent();
+                            ?>
+                            <p>
+                                <?php   
+                                    if (!empty($this->dataView['err'])) {
+                                        echo '<p class="err">'. implode('<br>', $this->dataView['err']) . '</p>';
+                                    }
+                                    if (!empty($this->dataview['msg'])) {
+                                        echo '<p class="msg">'. implode('<br>', $this->dataView['msg']) . '</p>';
+                                    }
+                                ?>
+                                                
+                            </p>
+                        
+                        </div>
+                        
+                        
+                    </form>
+                    
+                </div>
+            </div>
+            <div class="overlay-container-login">
             <div class="overlay">
                 <div class="overlay-left">
                     <h1>Create Account</h1>
@@ -264,22 +292,17 @@
         <h2>Made with ❤ by one duckhue01 <a href="https://www.facebook.com/duckhue01" target="_blank">one hundered incognitos</a></h2>
         </div>
         </div>       
-    </section>
-
-<!-- For The Bottom banner -->
-
-    
-
-    <script>
+</section>
+<script>
         const signIn = document.querySelector("#signInButton");
         const signUp = document.querySelector("#signUpButton");
-        const signInForm = document.querySelector(".container .sign-in-form");
-        const signUpForm = document.querySelector(".container .sign-up-form");
+        const signInForm = document.querySelector(".container-login .sign-in-form");
+        const signUpForm = document.querySelector(".container-login .sign-up-form");
         const overlay_container = document.querySelector(
-        ".container .overlay-container"
+        ".container-login .overlay-container-login"
         );
         const overlay = document.querySelector(
-        ".container .overlay-container .overlay"
+        ".container-login .overlay-container-login .overlay"
         );
 
         signIn.addEventListener("click", () => {
@@ -296,28 +319,13 @@
         });
 
     
-    </script>
+</script> 
 
+<script>
+        document.querySelector("#exit").addEventListener('click',() =>{
+        document.querySelector(".container01").classList.add("change");
+        
+        })
+           
+</script>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-</body>
-</html>

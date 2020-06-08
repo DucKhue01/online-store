@@ -4,7 +4,7 @@
 
     class ProductsController extends ControllerBase{
         public function ListAll() {
-            echo '<br> ham hien thi danh sahc san pham';
+            // echo '<br> ham hien thi danh sahc san pham';
             $data = ['srr'=>[],'smg'=>[]];
 
             $objModelSP = new ProductsModel();

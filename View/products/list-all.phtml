@@ -1,22 +1,54 @@
+<style>
+     @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Roboto:wght@300;500&display=swap");
+    *{
+        font-family: "Montserrat";
+        padding:0;
+        margin:0;
+                
+    }
+    .list-prod{
+        /* border: 1px solid black; */
+
+    }
+    .list-prod img{
+        width:183px;
+        height:244px;
+    }
+    .list-prod .items{
+        /* border: 1px solid black; */
+    }
+    .options{
+        /* border: 1px solid black; */
+        text-align:center;
+
+    }
+
+</style>
+
+
+
+
 <h2>san pham dang ban</h2>
-<ul class="list-prod">
+<div class="list-prod">
     <?php
         // echo '<pre>';
         //     print_r($this->dataView);
         // echo '</pre>'; 
 
         foreach ($this->dataView['list-prod'] as $row ) {
-            echo "<li>";
+            echo "<li class='items'>";
 
-                echo '<img width="100" src="'. base_path .'/Public/files/products/' . $row['image'] . '"/>';
+                echo "<a href=''>" . '<img width="100" src="'. base_path .'/Public/files/products/' . $row['image'] . '"/>' . '</a>';
+                echo "<div class='options'>";
                 echo "<br><a href='#'>" . $row['name'] . '</a>';
-                echo "<br><a href='". base_path ."?ct=products&act=add-cart&id={$row['id']}'>" . "mua" . '</a>';
-                
+                echo "<br><a href='". base_path ."?ct=products&act=add-cart&id={$row['id']}'>" . "add to cart" . '</a>';
+                echo "<br><p>" . $row['price'] . '</p>';
+                echo "</div>";
             echo "</li>";
         }
     ?>
 
-</ul>
+</div>
 
 
 

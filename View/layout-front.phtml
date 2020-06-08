@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/d6818a8498.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <title>Layout public</title>
     <style type="text/css">
         @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Roboto:wght@300;500&display=swap");
@@ -10,36 +12,161 @@
                 font-family: "Montserrat";
                 padding:0;
                 margin:0;
+                
+            }
+            body{
+                background-color:#f9fbfc;
             }
             a{
                 text-decoration: none;
-                color: rgb(31, 92, 51);
-                border: 1px solid black;
+                color: black;
+                /* border: 1px solid black; */
                 margin: 10px
             }
             .option-bar{
-                border: 1px solid black;
+                /* border: 1px solid black; */
                 text-align: center;
-
+                height:5vh;
+            }
+            .option-bar a{
+                margin:0px 30px 0px 30px;
             }
         
             .name01{
-                font-family: "Montserrat";
+                /* font-family: "Montserrat"; */
                 color:rgb(31, 92, 51);
-                border: 1px solid black;
+                /* border: 1px solid black; */
                 text-align: center;
+                width:30%;
+                left:50%;
+                transform: translate(-50%);
+                position: absolute;
+                margin: 5px;
+                top:0px;
             }
             .list-prod li{
                 list-style: none;
                 display: inline-block;
                 width:200px;
-                border: 1px solid #ccc;
+                /* border: 1px solid #ccc; */
                 margin: 10px
             }
+            
             .node-bar{
-                border: 1px solid black;
+                /* margin-top: 20px; */
+                margin: 10px 15px 15px 10px;
+                /* border: 1px solid black; */
+                position:relative;
+                height:10vh;
 
             }
+            .cart-log{
+                position:absolute;
+                
+                /* border:1px solid black; */
+                width:30%;
+                /* display:inline-block; */
+                /* right:10px;
+                top:10px;
+                margin:5px; */
+                
+                text-align: right;
+                top:0px;
+                right:0px;
+                margin: 5px 20px 5px 5px;
+                height:5vh;
+
+
+            }
+            a:hover{
+                color:rgb(31, 92, 51) ; 
+            }
+            .cart{
+                
+                display:inline-block;                
+                margin-right:15px;
+                /* border:1px solid black; */
+                /* rgb(31, 92, 51) */
+            }
+            
+            .log{
+                display:inline-block;               
+                margin-right:15px;
+            }
+            .hi{
+                display:inline-block;               
+                margin-right:15px
+
+            }
+            .social-media{
+                /* border: 1px solid black; */
+                width:20%;
+                position:absolute;
+                margin:5px 5px 5px 20px;
+                /* margin-left:20px; */
+
+            }
+            .social-media i{
+                margin:10px 0px 5px 20px;
+                font-size:20px
+            }
+            .social-media a i:hover{
+                color:rgb(31, 92, 51);
+                /* background-color:black;
+                 */
+                
+            }
+            footer{
+                display:flex;
+                background-color:
+            }
+            .col{
+                width:25%;
+                /* border: 1px solid black; */
+                display:inline-block;
+                height:40vh;
+                text-align: center;
+                
+
+            }
+            .col a{
+                display:block;
+                margin-top: 30px
+
+            }
+            .col input{
+                display:block;
+                position:relative;
+                left:50%;
+                transform: translate(-50%);
+                border:none;
+                border-bottom: 1px solid rgb(31, 92, 51);
+                width:200px;
+                height:5vh;
+                margin-top:20px;
+                
+                
+            }
+            .col input[type="submit"]{
+                border:1px solid rgb(31, 92, 51);
+            }
+            .col input[type="submit"]:hover{
+                background-color:rgb(31, 92, 51);
+                
+            }
+            .col h2{
+                margin-top:20px;
+            }
+            .col input[type="email"]:hover{
+                border-bottom:3px solid rgb(31, 92, 51);
+                
+            }
+            #login{
+                cursor:pointer;
+            }
+
+            
+            
 
     </style>
 
@@ -47,48 +174,189 @@
 </head>
 <body>
     <!-- phan dau trang -->
-    <h1 class="name01">100 incognitos store</h1>
+    
     <div class="node-bar">
+        <div class="social-media">
+            <a href="https://www.facebook.com/duckhue01" target="_blank"><i class="fab fa-facebook-f" ></i></a>
+            <a href="https://twitter.com/duckhue01" target="_blank"> <i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/duckhue01" target="_blank"> <i class="fab fa-instagram"></i></a>
+            <a href="https://github.com/DucKhue01" target="_blank"> <i class="fab fa-github"></i></a>     
+        </div>
+
+        <div>
+            <h1 class="name01">100 incognitos store</h1>
+        </div>
+
+        <div class="cart-log">
         <?php
             //phan hien thi so luong trong gio hang
 
             if (!empty($_SESSION['cart'])) {
                         
                 // echo "<a href='". base_path . "?ct=products&act=view-cart >'" . "Cart(" . count($_SESSION['cart']) . ")" . "</a>";
-                echo "<a href='" . base_path . "?ct=products&act=view-cart'>". "Cart(" . count($_SESSION['cart']) . ")"  ."</a>";
+                echo "<a class='cart' href='" . base_path . "?ct=products&act=view-cart'>". "Cart(" . count($_SESSION['cart']) . ")"  ."</a>";
 
 
+            }else{
+                echo "<a class='cart' href='" . base_path . "?ct=products&act=view-cart'>". "Cart(" . 0 . ")"  ."</a>";
             }
                 
             // chao
             if (!empty($_SESSION['auth'])) {
 
-                echo "Xin Chaof ". $_SESSION['auth']['username'];
-                echo "<br><a href='" . base_path . "?act=logout'>thoat</a>";
+                echo "<h3 class='hi'>Well come ". $_SESSION['auth']['username'] ."</h3>";
+                echo "<a class='log' href='" . base_path . "?act=logout'>Log Out</a>";
 
             }else{
-                echo "<br><a href='" . base_path . "?act=login'>Log In</a>";
+                echo "<a class='log' id='login'  href='" . base_path . "?act=login' >Log In</a>";
             }
         
         ?>
-
+        </div>
     </div>
     
-    <div class="option-bar">       
-        <a href="<?php echo base_path ?>?ct=products&act=list-all">Shop All</a>
-
+    <div class="option-bar"> 
         <a href="<?php echo base_path ?>">Home</a>
-    
-    
+        <a href="<?php echo base_path ?>?ct=products&act=list-all">Shop All</a>  
+        <a href="<?php echo base_path ?>">Our Story</a>
+        <a href="<?php echo base_path ?>">Contact</a>
+        <a href="<?php echo base_path ?>">Our Craft</a>
     </div>
 
     <hr>
-    // content
+
     <?php
         $this ->showContent();
     ?>
-
     <hr>
-    <h2>footer</h2>
+    
+    <footer>
+        
+        <div class="box">
+            <a href="<?php echo base_path ?>">Home</a>
+            <a href="<?php echo base_path ?>?ct=products&act=list-all">Shop All</a>  
+            <a href="<?php echo base_path ?>">Our Story</a>
+            <a href="<?php echo base_path ?>">Contact</a>
+            <a href="<?php echo base_path ?>">Our Craft</a>
+        
+        
+        </div>
+        <div class="box">
+            <a href="<?php echo base_path ?>">Home</a>
+            <a href="<?php echo base_path ?>?ct=products&act=list-all">Shop All</a>  
+            <a href="<?php echo base_path ?>">Our Story</a>
+            <a href="<?php echo base_path ?>">Contact</a>
+            <a href="<?php echo base_path ?>">Our Craft</a>
+        
+        
+        </div>
+        <div class="box">
+            <a href="<?php echo base_path ?>">Home</a>
+            <a href="<?php echo base_path ?>?ct=products&act=list-all">Shop All</a>  
+            <a href="<?php echo base_path ?>">Our Story</a>
+            <a href="<?php echo base_path ?>">Contact</a>
+            <a href="<?php echo base_path ?>">Our Craft</a>
+        
+        
+        </div>
+        <div class="box">
+        <h2>JOIN US!</h2>
+            <input type="email" name="" id="">
+            <input type="submit" value="SEND">
+        
+        </div>
+
+
+            
+    
+    
+    
+    </footer>
+    <div class="last">
+    <h2>Made with ❤ by one duckhue01 <a href="https://www.facebook.com/duckhue01" target="_blank">one hundered incognitos</a></h2></div>
+    <style>
+        footer{
+            margin-top:2vh;
+        }
+        .last{
+            width:100%;
+            height:7vh;
+            background-color:black;
+            text-align:center;
+            align-items:center;
+            line-height: 7vh;
+        }
+        .last h2{
+            color:#fff;
+            font-size: 14px;
+            font-family: "Montserrat";
+            font-weight: 500;
+            
+            
+        }
+        .last a{
+            font-size: 14px;
+            font-family: "Montserrat";
+            font-weight: 500;
+            color:rgb(31, 92, 51);
+           
+
+        }
+        .box{
+            width:25%;
+            height:40vh;
+            /* border:1px solid black; */
+            display:block;
+            text-align:center;
+            position:relative;
+
+
+
+
+        }
+        .box h2{
+            margin-top:20px;
+        }
+        .box input[type="email"]{
+            display:block;
+            margin-top:30px;
+            position:relative;
+            left:50%;
+            transform:translate(-50%);
+            width:250px;
+            height:5vh;
+            border:none;
+            border-bottom:1px solid black;
+
+
+
+        }
+        .box input[type="email"]:hover{
+            border-bottom:2px solid black;
+        }
+        .box input[type="submit"]{
+            width:250px;
+            height:7vh;
+            margin-top:20px;
+            background-color:#fff;
+            border: 1px solid rgb(31, 92, 51);
+
+        }
+        .box input[type="submit"]:hover{
+            background-color:rgb(31, 92, 51);
+            color:white;
+        }
+
+
+        .box a{
+            display:block;
+            margin-top:30px;
+
+        }
+    
+    
+    </style>
+
+   
 </body>
 </html>

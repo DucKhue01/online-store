@@ -74,12 +74,10 @@
 
 
             }
-            $this -> RenderView('index.login', $data , 'layout-front');
+            $this -> RenderView('index.login', $data );
             
             
         }
-
-
 
         public function Logout() {
             if (!empty( $_SESSION['auth'])) {
@@ -90,7 +88,4 @@
 
 
         }
-
-
-
     }

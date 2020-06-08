@@ -27,6 +27,7 @@
           }else{
                 die("khong ton tai file VIEW " . str_replace(app_path,'',$this ->file_view_path));
           }
+        //   require_once $this -> file_view_path; 
 
         }
        
