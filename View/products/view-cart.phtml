@@ -18,7 +18,7 @@
                 $sum = number_format($sum);
                 echo"<tr>
                         <td>{$stt}</td> 
-                        <td> <img src='" . base_path . "/Public/files/products/{$row['image']}' width='50'>   </td> 
+                        <td> <img src='" . base_path . "/Public/files/products/{$row['id']}.webp' width='50'>   </td> 
                         <td>{$row['name']}</td>
                         <td>{$amount}</td> 
                         <td>{$price}</td>
@@ -35,9 +35,9 @@
     
 <?php
 
-echo '<pre>';
-    print_r($_SESSION['cart']);
-echo '</pre>';
+// echo '<pre>';
+//     print_r($_SESSION['cart']);
+// echo '</pre>';
 
 // echo '<pre>';
 //     print_r($this->dataView);

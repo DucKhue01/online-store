@@ -8,6 +8,7 @@
     }
     .list-prod{
         /* border: 1px solid black; */
+        margin-bottom:40px;
 
     }
     .list-prod img{
@@ -22,33 +23,145 @@
         text-align:center;
 
     }
+    .filter{
+        width:19%;
+        height:500px;
+       
+        display:inline-block;
+        /* position:static; */
+        top:-110px;
+        float:left;
+        margin-top:10px;
+        margin-left:5%;
+        margin-right:5%;
 
+
+    }
+    .container{
+        display:inline-block;
+        /* position:relative; */
+        /* top:-100px; */
+        /* border-left:3px solid rgb(31, 92, 51); */
+
+
+        
+    }
+    .list-prod{
+        width:70%;
+        display:inline-block;
+        
+
+        
+
+    }
+    .tieude{
+        text-align:center;
+        margin:20px 0px 20px 0px;
+    }
+    .filter .opti{
+        margin:20px;
+
+    }
+   
+    .sub-collection{
+        visibility: hidden;
+        height:0px;
+        margin:0px;
+
+    }
+    .change{
+        visibility: visible;
+        height:140px;
+        margin:20px;
+
+    }
+    .filter div{
+        cursor:pointer;
+    }
+    .sub div{
+        margin: 0px 0 20px 0;
+    }
+    .sub div:hover{
+        color:rgb(31, 92, 51);
+    }
+    .filter h2{
+        margin-bottom:20px;
+
+    }
+    
 </style>
 
+<div class="tieude">
+    <h2>SHOP ALL</h2>
+</div>
+<div class="container">
+    <div class="filter expand">
+        <h2 >Filter by</h2>
+        <hr>
+        <div class="conlection opti">
+           
+            <div >Collection</div>
+            <div class="sub-collection sub">
+                <div class="all"><p>All</p></div>
+                <div class="hand-bag"><p>Hand Bag</p></div>
+                <div class="dong-ho"><p>Dong Ho</p></div>
+                <div class="vi"><p>Vi</p></div>
+
+            </div>
+        </div>
+        <hr>
+        
+        <div class="price opti">
+            
+            <div >Price</div>
+            <div class="sub-price">
+            </div>
+        </div>
+        <hr>
+
+        <div class="model opti">
+           
+            <div >Model</div>
+           
+        </div>
+        <hr>
+        <div class="size opti">
+           
+            <div>Size</div>
+            
+        </div>
+        <hr>
+    </div>
 
 
+    <div class="list-prod">
+        <?php
+            // echo '<pre>';
+            //     print_r($this->dataView);
+            // echo '</pre>'; 
 
-<h2>san pham dang ban</h2>
-<div class="list-prod">
-    <?php
-        // echo '<pre>';
-        //     print_r($this->dataView);
-        // echo '</pre>'; 
+            foreach ($this->dataView['list-prod'] as $row ) {
+                echo "<li class='items'>";
 
-        foreach ($this->dataView['list-prod'] as $row ) {
-            echo "<li class='items'>";
+                    echo "<a href=''>" . '<img width="100" src="'. base_path .'/Public/files/products/' . $row['id'] . ".webp".'"/>' . '</a>';
+                    echo "<div class='options'>";
+                    echo "<br><a href='#'>" . $row['name'] . '</a>';
+                    echo "<br><a href='". base_path ."?ct=products&act=add-cart&id={$row['id']}'>" . "add to cart" . '</a>';
+                    echo "<br><p>" . $row['price'] . '</p>';
+                    echo "</div>";
+                echo "</li>";
+            }
+        ?>
 
-                echo "<a href=''>" . '<img width="100" src="'. base_path .'/Public/files/products/' . $row['image'] . '"/>' . '</a>';
-                echo "<div class='options'>";
-                echo "<br><a href='#'>" . $row['name'] . '</a>';
-                echo "<br><a href='". base_path ."?ct=products&act=add-cart&id={$row['id']}'>" . "add to cart" . '</a>';
-                echo "<br><p>" . $row['price'] . '</p>';
-                echo "</div>";
-            echo "</li>";
-        }
-    ?>
-
+    </div>
 </div>
 
 
+<script>
+        document.querySelector(".conlection").addEventListener('click',() =>{
+        document.querySelector(".sub").classList.toggle("change");
+        
+        })
+           
+</script>
 
