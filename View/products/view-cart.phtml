@@ -1,46 +1,202 @@
-<h2>xem gio hang</h2>
+
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Roboto:wght@300;500&display=swap");
+    *{
+        font-family: "Montserrat";
+        padding:0;
+        margin:0;
+                    
+    }
+    .container{
+        /* height:100vh; */
+        display:inline-block;
+        width:100%;
+        margin:20px 20px 20px 40px;
+        /* display:inline-block; */
+
+        
+    }
+    
+   
+    .items{
+        background-color:#fff;
+        /* border:1px solid black; */
+        width:100%;
+        height:25vh;
+        position:relative;
+        display:inline-block;
+        /* float:left; */
+        /* border:1px solid black; */
+        box-shadow:0px 0px 5px #888888;
+        margin:15px;
+        
+    }
+    .items .imgs{
+       height:25vh;
+       width:200px;
+       /* border:1px solid black; */
+       display:inline-block;
+
+      
+    }
+    .items .name{
+       
+        width:150px;
+        height:10vh;
+        margin-top:10px;
+        /* border:1px solid black; */
+        display:inline-block;
+        top:0px; 
+        position:absolute;
+        text-align:center;
+        
+    }
+    .items .price{
+        width:150px;
+        height:10vh;
+        /* border:1px solid black; */
+        display:inline-block;
+        position:absolute;
+        margin-top:10px;
+        right:150px;
+        text-align:center;
+       
+
+    }
+    .items .amount{
+        width:150px;
+        height:10vh;
+        /* border:1px solid black; */
+        display:inline-block;
+        position:absolute;
+        margin-top:10px;
+        right:200px;
+        text-align:center;
+        right:0px;
+
+    }
+    h2{
+        text-align:center;
+        font-size:30px;
+    }
+    .compute{
+        /* border:1px solid black; */
+        height:30vh;
+        width:25%;
+        display:inline-block;
+        position:absolute;
+        right:20px;
+        top:195px;
+        background-color:#fff;
+        box-shadow:0px 0px 5px #888888;
+        
+        
+
+    }
+    .container-items{
+        /* border:1px solid black; */
+        /* height:70vh; */
+        width:60%;
+        display:inline-block;
+        
+
+    }
+    .fa-minus{
+        cursor:pointer;
+    }
+    .fa-plus{
+        cursor:pointer;
+    }
+    .tamtinh{
+        margin:20px;
+        
+        height:10vh;
+        
+            
+    }
+    .tamtinh .gia{
+        text-align:right;
+    }
+    .tamtinh  h3{
+        display:inline-block;
+        float:left;
+    }
+
+    
 
 
-    <table border="1" cellpadding="10">
-        <tr>
-            <td>stt</td> <td>anh</td> <td>tensp</td> <td>so luong</td> <td>don gia</td> <td>thanh tien</td>
-        </tr>
+</style>
+<h2>Cart</h2>
+
+
+<div class="container">
+    <div class="container-items">
         <?php
-            $stt = 0;
-            $sumAll = 0;
-            foreach ($this->dataView['list_prod'] as $row ) {
-                $stt++;
-                $id_prod = $row['id'];
-                $amount = $_SESSION['cart'][$id_prod];
-                $price  = number_format($row['price']);
-                $sum = $amount *$row['price'];
-                $sumAll += $sum;
-                $sum = number_format($sum);
-                echo"<tr>
-                        <td>{$stt}</td> 
-                        <td> <img src='" . base_path . "/Public/files/products/{$row['id']}.webp' width='50'>   </td> 
-                        <td>{$row['name']}</td>
-                        <td>{$amount}</td> 
-                        <td>{$price}</td>
-                        <td>$sum</td>
-                    </tr>";
-            };
-        ?>
-        <tr>
-            <td colspan="5">tong tien</td> <td><?php echo number_format($sumAll)?></td>
-        </tr>
+            if (!empty($this->dataView['list_prod'])) {   
+                $sumAll = 0;
+                    foreach ($this->dataView['list_prod'] as $row ) {
+                                
+                        $id_prod = $row['id'];
+                        $amount = $_SESSION['cart'][$id_prod];
+                        $price  = number_format($row['price']);
+                        $sum = $amount *$row['price'];
+                        $sumAll += $sum;
+                        $sum = number_format($sum);
+                        echo"<div class='items'>
+                                        
+                                <div class='imgs'> <img src='" . base_path . "/Public/files/products/{$row['id']}.webp' width='100'>   </div> 
+                                <div class='name'>{$row['name']}</div>
+                                <div class='price'>{$price}</div>
+                                <a href=''>remove</a>
+                                            
+                                <div class='amount'>
+                                    <a href='/practive/online-store/?ct=products&act=red-prod&id=$id_prod'><i class='fas fa-minus' ></i></a>
+                                    {$amount}
+                                    <a href='/practive/online-store/?ct=products&act=inc-prod&id=$id_prod'><i class='fas fa-plus' ></i></a>
+
+                                </div> 
+                                            
+                                
+                            </div>";
+                };
+           
+            }         
+                
+        ?>  
+    </div>
+    <div class="compute">
+            <div class="tamtinh">
+                <div>
+                    <h3>Tam tinh</h3>
+                </div>
+                <div class="gia">
+                    <p>
+                        <?php
+                            echo number_format($sumAll);
+                        ?> 
+                    </p>
+                </div>
+                         
+            </div>
+            <hr>
+            <div class="tongtien tamtinh">
+                <div>
+                    <h3>thành Tiền</h3>
+                </div>
+                <div class="gia">
+                    <p>
+                        <?php
+                            echo number_format($sumAll);
+                        ?> 
+                    </p>
+                    <p>(da bao gom phi VAT neu co)</p>
+                </div>
+            
+            
+            </div>
     
-    </table>
+    </div>
 
-    
-<?php
 
-// echo '<pre>';
-//     print_r($_SESSION['cart']);
-// echo '</pre>';
-
-// echo '<pre>';
-//     print_r($this->dataView);
-// echo '</pre>';
-
-?>
+</div>
+<script src="https://kit.fontawesome.com/d6818a8498.js" crossorigin="anonymous"></script>

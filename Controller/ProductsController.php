@@ -14,14 +14,13 @@
             $this->RenderView('products.list-all', $data, 'layout-front');
 
         }
-
-
+        
         public function AddCart(){
             //?ct=products&add-cart&id=123
             $idprod = @$_GET['id'];
             $idprod = intval($idprod);
 
-            $chuyen_trang = base_path .'/';
+            $chuyen_trang = base_path .'/' . "?ct=products&act=list-all";
             if ($idprod <= 0) {
                 header("Location: $chuyen_trang");
 
@@ -61,5 +60,39 @@
             
             $this ->RenderView('products.view-cart',$data,'layout-front');
         }
+
+        public function IncProd(){
+            $chuyen_trang = base_path . "?ct=products&act=view-cart";
+            print_r($_SESSION['cart']);
+            $id = $_GET["id"];
+            $_SESSION['cart'][$id]++;
+            // print_r($_SESSION['cart'][$id]);
+
+            header("Location:$chuyen_trang");
+            
+        }
+        public function RedProd(){
+            $id = $_GET["id"];
+            $chuyen_trang = base_path  . "?ct=products&act=view-cart";
+                if ( $_SESSION['cart'][$id] > 1) {
+                    
+                    print_r($_SESSION['cart']);
+                   
+                    $_SESSION['cart'][$id]--;
+                    // print_r($_SESSION['cart'][$id]);
+        
+                    
+                }
+            header("Location:$chuyen_trang");
+
+            
+
+            
+            
+        }
+
+
+
+
 
     }   
