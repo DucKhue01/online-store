@@ -90,6 +90,16 @@
             
             
         }
+        
+        public function Remove(){
+            $chuyen_trang = base_path . "?ct=products&act=view-cart";
+            print_r( $_SESSION['cart']);
+            $id = $_GET["id"];
+            unset($_SESSION['cart'][$id]);
+             
+            header("Location:$chuyen_trang");
+            
+        }
 
 
 

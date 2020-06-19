@@ -7,7 +7,7 @@
         public function Index(){
             
 
-            $this -> RenderView('index.home', [] , 'layout-front');
+            $this -> RenderView('index.index', [] , 'layout-front');
             
         }
 

@@ -1,131 +1,5 @@
 
-<style>
-    @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Roboto:wght@300;500&display=swap");
-    *{
-        font-family: "Montserrat";
-        padding:0;
-        margin:0;
-                    
-    }
-    .container{
-        /* height:100vh; */
-        display:inline-block;
-        width:100%;
-        margin:20px 20px 20px 40px;
-        /* display:inline-block; */
-
-        
-    }
-    
-   
-    .items{
-        background-color:#fff;
-        /* border:1px solid black; */
-        width:100%;
-        height:25vh;
-        position:relative;
-        display:inline-block;
-        /* float:left; */
-        /* border:1px solid black; */
-        box-shadow:0px 0px 5px #888888;
-        margin:15px;
-        
-    }
-    .items .imgs{
-       height:25vh;
-       width:200px;
-       /* border:1px solid black; */
-       display:inline-block;
-
-      
-    }
-    .items .name{
-       
-        width:150px;
-        height:10vh;
-        margin-top:10px;
-        /* border:1px solid black; */
-        display:inline-block;
-        top:0px; 
-        position:absolute;
-        text-align:center;
-        
-    }
-    .items .price{
-        width:150px;
-        height:10vh;
-        /* border:1px solid black; */
-        display:inline-block;
-        position:absolute;
-        margin-top:10px;
-        right:150px;
-        text-align:center;
-       
-
-    }
-    .items .amount{
-        width:150px;
-        height:10vh;
-        /* border:1px solid black; */
-        display:inline-block;
-        position:absolute;
-        margin-top:10px;
-        right:200px;
-        text-align:center;
-        right:0px;
-
-    }
-    h2{
-        text-align:center;
-        font-size:30px;
-    }
-    .compute{
-        /* border:1px solid black; */
-        height:30vh;
-        width:25%;
-        display:inline-block;
-        position:absolute;
-        right:20px;
-        top:195px;
-        background-color:#fff;
-        box-shadow:0px 0px 5px #888888;
-        
-        
-
-    }
-    .container-items{
-        /* border:1px solid black; */
-        /* height:70vh; */
-        width:60%;
-        display:inline-block;
-        
-
-    }
-    .fa-minus{
-        cursor:pointer;
-    }
-    .fa-plus{
-        cursor:pointer;
-    }
-    .tamtinh{
-        margin:20px;
-        
-        height:10vh;
-        
-            
-    }
-    .tamtinh .gia{
-        text-align:right;
-    }
-    .tamtinh  h3{
-        display:inline-block;
-        float:left;
-    }
-
-    
-
-
-</style>
+<link rel="stylesheet" href="Public/css/view-cart.css">
 <h2>Cart</h2>
 
 
@@ -147,7 +21,7 @@
                                 <div class='imgs'> <img src='" . base_path . "/Public/files/products/{$row['id']}.webp' width='100'>   </div> 
                                 <div class='name'>{$row['name']}</div>
                                 <div class='price'>{$price}</div>
-                                <a href=''>remove</a>
+                                <a href='/practive/online-store/?ct=products&act=remove&id=$id_prod''>remove</a>
                                             
                                 <div class='amount'>
                                     <a href='/practive/online-store/?ct=products&act=red-prod&id=$id_prod'><i class='fas fa-minus' ></i></a>
@@ -159,43 +33,49 @@
                                 
                             </div>";
                 };
+                $sumAll = number_format($sumAll);
+                echo "
+                <div class='compute'>
+                        <div class='tamtinh'>
+                            <div>
+                                <h3>Tam tinh</h3>
+                            </div>
+                            <div class='gia'>
+                                <p>{$sumAll} </p>
+                            </div>
+                                    
+                        </div>
+                        <hr>
+                        <div class='tongtien tamtinh'>
+                            <div>
+                                <h3>thành Tiền</h3>
+                            </div>
+                            <div class='gia'>
+                                <p>$sumAll</p>
+                                <p>(da bao gom phi VAT neu co)</p>
+                            </div>
+                        
+                        
+                        </div>
+                
+                </div>";
+
+
+
            
+            }else{
+                echo "gio hang cua ban dang trong";
+
+
+
+
             }         
+
+            
                 
         ?>  
     </div>
-    <div class="compute">
-            <div class="tamtinh">
-                <div>
-                    <h3>Tam tinh</h3>
-                </div>
-                <div class="gia">
-                    <p>
-                        <?php
-                            echo number_format($sumAll);
-                        ?> 
-                    </p>
-                </div>
-                         
-            </div>
-            <hr>
-            <div class="tongtien tamtinh">
-                <div>
-                    <h3>thành Tiền</h3>
-                </div>
-                <div class="gia">
-                    <p>
-                        <?php
-                            echo number_format($sumAll);
-                        ?> 
-                    </p>
-                    <p>(da bao gom phi VAT neu co)</p>
-                </div>
-            
-            
-            </div>
     
-    </div>
 
 
 </div>

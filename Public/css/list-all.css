@@ -1,0 +1,89 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Roboto:wght@300;500&display=swap");
+*{
+    font-family: "Montserrat";
+    padding:0;
+    margin:0;
+            
+}
+.list-prod{
+    /* border: 1px solid black; */
+    margin-bottom:40px;
+
+}
+.list-prod img{
+    width:183px;
+    height:244px;
+}
+.list-prod .items{
+    /* border: 1px solid black; */
+}
+.options{
+    /* border: 1px solid black; */
+    text-align:center;
+
+}
+.filter{
+    width:19%;
+    height:500px;
+   
+    display:inline-block;
+    /* position:static; */
+    top:-110px;
+    float:left;
+    margin-top:10px;
+    margin-left:5%;
+    margin-right:5%;
+
+
+}
+.container{
+    display:inline-block;
+    /* position:relative; */
+    /* top:-100px; */
+    /* border-left:3px solid rgb(31, 92, 51); */
+
+
+    
+}
+.list-prod{
+    width:70%;
+    display:inline-block;
+    
+
+    
+
+}
+.tieude{
+    text-align:center;
+    margin:20px 0px 20px 0px;
+}
+.filter .opti{
+    margin:20px;
+
+}
+
+.sub-collection{
+    visibility: hidden;
+    height:0px;
+    margin:0px;
+
+}
+.change{
+    visibility: visible;
+    height:140px;
+    margin:20px;
+
+}
+.filter div{
+    cursor:pointer;
+}
+.sub div{
+    margin: 0px 0 20px 0;
+}
+.sub div:hover{
+    color:rgb(31, 92, 51);
+}
+.filter h2{
+    margin-bottom:20px;
+
+}
