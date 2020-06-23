@@ -1,5 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="View/index/css/style.css">
+    <!-- //carousel -->
+    
+    <link rel="stylesheet" href="View/index/owlcarousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="View/index/owlcarousel/assets/owl.theme.default.min.css">    
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="View/index/owlcarousel/owl.carousel.min.js"></script>
+    
 
-<link rel="stylesheet" href="View/index/css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
     <div class="app">
 
         <div class="cardList">
@@ -100,3 +118,108 @@
     <script src="View/index/js/softripple.min.js"></script>
     <script src="View/index/js/gsap.min.js"></script>
     <script src="View/index/js/script.js"></script>
+
+
+<div class="best-seller">
+    <h2>BEST SELLERS</h2>
+    <hr>
+    
+   
+    
+    <div class="owl-carousel owl-theme">
+    
+        
+        <?php 
+
+
+                    foreach ($this->dataView['list-prod'] as $row ) {
+                        $price  = number_format($row['price']);
+                        echo "<div class='item'>";
+                            
+        
+                            echo "<a href='' >" . '<img src="'. base_path .'/Public/files/products/' . $row['id'] . ".webp".'"/>' . '</a>';
+                            echo "<p>" . $row['name'] . '</p>';
+                           
+
+                            echo "<div class='options'>";    
+                            echo "<br><p>" ."$".$price . '</p>';
+
+                            echo "<br><hr><div class='addToC'><a href='". base_path ."?ct=products&act=add-cart&id={$row['id']}'>" . "add to cart" . '</a></div>';
+                            echo "</div>";
+                        echo "</div>";
+                    }
+
+
+
+            ?> 
+      
+
+
+        
+    </div>
+    <!-- <button id="shopnow" type =>
+                    SHOP NOW!
+    </button> -->
+    <input type="submit" value=" SHOP NOW!" id="shopnow" href="#">
+
+</div>
+
+
+
+<div class="contact">
+    <h2>follow<br>
+    one hundred devers on facebook
+    <br>
+    <a href="https://www.facebook.com/duckhue01">/one hundered devers</a>
+    </h2>
+   
+   
+   <div class="contact-img">
+        <img src="Public/img/contact_02.png" alt="">
+        <img src="Public/img/contact_03.png" alt="">
+        <img src="Public/img/contact_04.png" alt="">
+        <img src="Public/img/contact_05.png" alt="">
+        <img src="Public/img/contact_06.png" alt="">
+
+   </div>
+  
+    <img src="Public/img/text.png" alt="" id="text">
+
+
+</div>
+
+    <script>
+        $(document).ready(function(){
+            $(".owl-carousel").owlCarousel({
+                        loop:true,
+                        margin:10,
+                        nav:true,
+                      
+                        
+                       
+                        responsive:{
+                            0:{
+                                items:1
+                            },
+                            600:{
+                                items:3
+                            },
+                            1000:{
+                                items:5
+                            }
+                        },
+                        navText: [
+                        '<svg width=20 height="20" viewBox="0 0 24 24"><path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z"/></svg>',
+                        '<svg width="20" height="20" viewBox="0 0 24 24"><path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z"/></svg>'
+                        ]
+  
+                    });
+            });
+
+
+    </script>
+
+
+
+</body>
+</html>

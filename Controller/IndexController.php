@@ -1,13 +1,21 @@
 <?php
     require_once app_path. '/Model/UserModel.php';
+    require_once app_path. '/Model/ProductsModel.php';
 
 
 
     class IndexController extends ControllerBase{ 
         public function Index(){
+           
+            $data = ['srr'=>[],'smg'=>[]];
+    
+            $objModelSP = new ProductsModel();
+                
+            $data['list-prod'] = $objModelSP->getBL();
+    
+            $this->RenderView('index.index', $data, 'layout-front');
             
-
-            $this -> RenderView('index.index', [] , 'layout-front');
+  
             
         }
 
@@ -88,4 +96,7 @@
 
 
         }
+
+
+
     }

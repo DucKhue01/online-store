@@ -18,7 +18,9 @@ a{
 .option-bar{
     /* border: 1px solid black; */
     text-align: center;
-    height:5vh;
+    height:10vh;
+    margin-top: 10px;
+    /* background-color: rgb(11, 39, 21); */
 }
 .option-bar a{
     margin:0px 30px 0px 30px;
@@ -110,7 +112,7 @@ a:hover{
 }
 footer{
     display:flex;
-    background-color:
+    height: 70vh;
 }
 .col{
     width:25%;
@@ -160,7 +162,8 @@ footer{
 
 
 footer{
-    margin-top:2vh;
+    /* margin-top:2vh; */
+    background-color: #ffffff;
 }
 .last{
     width:100%;
@@ -193,6 +196,7 @@ footer{
     display:block;
     text-align:center;
     position:relative;
+    margin-top: 20px;
 
 
 

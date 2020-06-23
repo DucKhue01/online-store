@@ -19,5 +19,18 @@
             
             return $data;
         }
+
+        public function getBL(){
+            $sql = "SELECT * FROM tb_book WHERE uid = 1 ";
+            $res = $this -> Query($sql);
+            $data = [];
+
+            while ($row = $res ->fetch_assoc()) {
+                $data[] = $row; 
+            }
+            
+            return $data;
+        }
+
     }
 

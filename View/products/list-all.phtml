@@ -51,13 +51,14 @@
             // echo '</pre>'; 
 
             foreach ($this->dataView['list-prod'] as $row ) {
+                $price  = number_format($row['price']);
                 echo "<li class='items'>";
 
                     echo "<a href=''>" . '<img width="100" src="'. base_path .'/Public/files/products/' . $row['id'] . ".webp".'"/>' . '</a>';
                     echo "<div class='options'>";
                     echo "<br><a href='#'>" . $row['name'] . '</a>';
                     echo "<br><a href='". base_path ."?ct=products&act=add-cart&id={$row['id']}'>" . "add to cart" . '</a>';
-                    echo "<br><p>" . $row['price'] . '</p>';
+                    echo "<br><p>" ."$".$price. '</p>';
                     echo "</div>";
                 echo "</li>";
             }
