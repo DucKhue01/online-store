@@ -424,7 +424,7 @@ button:focus {
 .contact{
   background-color: #f6f3ef;
   width:100%;
-  height: 110vh;
+  height: 120vh;
   
 }
 .contact h2{
@@ -436,14 +436,8 @@ button:focus {
   margin-top: 10vh;
   color:rgb(17, 70, 34);
 }
-.contact-img{
-  width: 100%;
-  height: 250px;
-  
-}
-.contact-img img {
-  float: left;
-}
+
+
 
 #text{
   width: 100%;
@@ -457,19 +451,14 @@ button:focus {
 .item{
  margin-left: 40px;
   float: left;
-  height: 60vh;
+  height: 55vh;
   width:183px;
   /* height:444px; */
   
   
   
 }
-.item img{
-  width:183px;
-  height:244px;
-  
-  
-}
+
 
 .item img p{
   z-index: 10;
@@ -492,13 +481,85 @@ transform: translate(-50%);
   margin-top: 40px;
   font-weight: 400;
   letter-spacing: 5px;
+  background-color: #ffffff;
+  
+
 }
 #shopnow:hover{
   background-color: #114622;
   color: #ffffff;
 }
 .addToC{
-  width: 100px;
-  height: 100px;
+  width: 183px;
+  height: 40px;
   border: 1px solid black;
+  line-height: 40px;
+  color: #114622;
+}
+.addToC:hover{
+  background-color: #114622;
+  color: #ffffff;
+}
+
+
+
+.item img{
+  width:183px;
+  height:244px;
+  z-index: 10;
+ 
+  
+}
+.item:hover .options{
+  background-color: #114622;
+  top: 20px;
+  visibility: visible;
+  color: #ffffff;
+  
+}
+.options{
+  width: 183px;
+  height:30px;
+  
+  position: absolute;
+  top: -10px;
+  visibility: hidden;
+  transition:  0.5s ;
+ 
+  
+}
+.options p{
+  letter-spacing: 3px;
+  margin-top: 2px;
+}
+.contact-img{
+  width: 100%;
+  height: 350px;
+  /* border:1px solid black; */
+
+}
+
+.contact-img .contactItem{
+  display: inline-block;
+  position: relative;
+  width: 19.6%;
+}
+.contact-img .contactItem p{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.contactItem:hover img{
+  opacity: 0.9;
+  filter: brightness(50%);
+}
+.contactItem:hover p{
+  visibility: visible;
+  /* opacity: 0.9; */
+}
+.contactItem p{
+  visibility: hidden;
+  font-size: 13px;
+  color: #ffffff;
 }

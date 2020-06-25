@@ -1,0 +1,71 @@
+
+
+   <link rel="stylesheet" href="Public/css/edit.css">
+
+    
+    
+
+        <div class="container">   
+            <table class="table table-striped" id="table">
+                <h2>asdasdasd</h2>
+                <thead>
+                    <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                    <th scope="col">Handle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                    <td>@mdo</td>
+                    </tr>
+                    <?php 
+                        // echo "<pre>";
+                        // print_r($this->dataView);
+                        // echo "</pre>";
+
+                        foreach ($this->dataView['list-prod'] as $row ) {
+                            $price  = number_format($row['price']);
+                            
+                            echo "
+                                <tr>
+                                <th scope='row'>1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>@mdo</td>
+                                </tr>
+                            
+                            
+                            
+                            ";
+                            
+                        }
+
+
+
+                    ?> 
+                </tbody>
+            </table>
+
+
+        </div>
+
+
+
+
+    <script>
+        $(document).ready( function () {
+            $('#table').DataTable();
+        } );
+    </script>
+
+
+   
+

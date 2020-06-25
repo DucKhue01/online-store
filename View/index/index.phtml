@@ -134,18 +134,22 @@
 
                     foreach ($this->dataView['list-prod'] as $row ) {
                         $price  = number_format($row['price']);
-                        echo "<div class='item'>";
+                        echo "<div class='item' >";
                             
         
-                            echo "<a href='' >" . '<img src="'. base_path .'/Public/files/products/' . $row['id'] . ".webp".'"/>' . '</a>';
-                            echo "<p>" . $row['name'] . '</p>';
+                            echo "<a href='' class='avt' >" . '<img src="'. base_path .'/Public/files/products/' . $row['id'] . ".webp".'"/>' . '</a>';
+                            
+                            echo "<p>" ."$".$price . '</p>';
+                            echo "<a href='". base_path ."?ct=products&act=add-cart&id={$row['id']}'><div  class='addToC'>" . "add to cart" . '</div></a>';
                            
 
-                            echo "<div class='options'>";    
-                            echo "<br><p>" ."$".$price . '</p>';
-
-                            echo "<br><hr><div class='addToC'><a href='". base_path ."?ct=products&act=add-cart&id={$row['id']}'>" . "add to cart" . '</a></div>';
+                            echo "<div class='options'>";  
+                                echo "<p>" . $row['name'] . '</p>';
+                                
                             echo "</div>";
+                           
+
+                           
                         echo "</div>";
                     }
 
@@ -153,14 +157,16 @@
 
             ?> 
       
-
+    
 
         
     </div>
     <!-- <button id="shopnow" type =>
                     SHOP NOW!
     </button> -->
-    <input type="submit" value=" SHOP NOW!" id="shopnow" href="#">
+    <a href="<?php echo base_path ?>?ct=products&act=list-all">
+        <input type="submit" value=" SHOP NOW!" id="shopnow" >
+    </a>
 
 </div>
 
@@ -175,11 +181,47 @@
    
    
    <div class="contact-img">
-        <img src="Public/img/contact_02.png" alt="">
-        <img src="Public/img/contact_03.png" alt="">
-        <img src="Public/img/contact_04.png" alt="">
-        <img src="Public/img/contact_05.png" alt="">
-        <img src="Public/img/contact_06.png" alt="">
+        <div class="contactItem">
+            <img src="Public/img/contact_02.png" alt="" class="baner">
+            <p>
+                /ducckhue01 #100devers @duckhue01
+                <br>one hundred devers store with luv
+                 
+            </p> 
+        </div>
+        <div class="contactItem">
+            <img src="Public/img/contact_03.png" alt="" class="baner">
+            <p>
+                /ducckhue01 #100devers @duckhue01
+                <br>one hundred devers store with luv
+                 
+            </p> 
+        </div>
+        <div class="contactItem">
+            <img src="Public/img/contact_04.png" alt="" class="baner">
+            <p>
+                /ducckhue01 #100devers @duckhue01
+                <br>one hundred devers store with luv
+                 
+            </p> 
+        </div>
+        <div class="contactItem">
+            <img src="Public/img/contact_05.png" alt="" class="baner">
+            <p>
+                /ducckhue01 #100devers @duckhue01
+                <br>one hundred devers store with luv
+                 
+            </p> 
+        </div>
+        <div class="contactItem">
+            <img src="Public/img/contact_06.png" alt="" class="baner">
+            <p>
+                /ducckhue01 #100devers @duckhue01
+                <br>one hundred devers store with luv
+                 
+            </p> 
+        </div>
+        
 
    </div>
   
@@ -220,6 +262,6 @@
     </script>
 
 
-
 </body>
+
 </html>

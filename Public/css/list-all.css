@@ -3,7 +3,11 @@
     font-family: "Montserrat";
     padding:0;
     margin:0;
+    
             
+}
+body{
+    background-color: #ffffff;
 }
 .list-prod{
     /* border: 1px solid black; */
@@ -13,6 +17,9 @@
 .list-prod img{
     width:183px;
     height:244px;
+    position: relative;
+    top: 0;
+    left: -10px;
 }
 
 .options{
@@ -21,7 +28,7 @@
 
 }
 .filter{
-    width:19%;
+    width:14%;
     height:500px;
    
     display:inline-block;
@@ -29,35 +36,60 @@
     top:-110px;
     float:left;
     margin-top:10px;
-    margin-left:5%;
-    margin-right:5%;
+    margin-left:10%;
+    margin-right: 5px;
+    
 
 
 }
 .container{
     display:inline-block;
-    /* position:relative; */
-    /* top:-100px; */
-    /* border-left:3px solid rgb(31, 92, 51); */
-
+    
+   width: 100%;
+   
 
     
 }
 .list-prod{
     width:70%;
     display:inline-block;
+    position: relative;
+   
     
 
+}
+.items{
     
-
+    margin-left: 40px;
+    float: left;
+    height:50vh;
+    width:183px;
+    text-align: center;
+    /* border: 1px solid red; */
+    margin-bottom: 8vh;
+    position: relative;
+}
+.items .gia{
+    letter-spacing: 3px;
+    color: #114622;
+    font-size: 15px;
+    /* text-transform: inherit; */
+    font-style: italic;
+    margin-top: 10px;
 }
 .tieude{
     text-align:center;
     margin:20px 0px 20px 0px;
 }
 .filter .opti{
-    margin:20px;
+  margin:20px 0px 20px 0px ;
 
+}
+.opti i{
+    float: right;
+    font-size: 12px;
+    color: #114622;
+    
 }
 
 .sub-collection{
@@ -66,22 +98,73 @@
     margin:0px;
 
 }
+.sub-collection p {
+    font-size: 12px;
+}
 .change{
     visibility: visible;
-    height:140px;
-    margin:20px;
+    height:80px;
+    margin:10px 0 0 10px;
 
 }
 .filter div{
     cursor:pointer;
 }
 .sub div{
-    margin: 0px 0 20px 0;
+    margin: 0px 0 10px 0;
 }
 .sub div:hover{
     color:rgb(31, 92, 51);
 }
 .filter h2{
     margin-bottom:20px;
+    font-size: 25px;
 
+}
+.filter hr{
+    height: 0.1px;
+    color: rgb(255, 255, 255);
+}
+
+
+.addToC{
+    width: 183px;
+    height: 40px;
+    border: 1px solid black;
+    line-height: 40px;
+    color: #114622;
+  }
+.addToC:hover{
+    background-color: #114622;
+    color: #ffffff;
+}
+
+.items:hover .options{
+    background-color: #114622;
+    top: 0px;
+    visibility: visible;
+    color: #ffffff;
+    
+  }
+  .options{
+    width: 183px;
+    height:30px;
+    
+    position: absolute;
+    top: -10px;
+    visibility: hidden;
+    transition:  0.3s ;
+   
+    
+  }
+  .options p{
+    letter-spacing: 3px;
+    margin-top: 2px;
+  }
+.btn{
+   
+    height: 30px;
+    width: 40px;
+    line-height: 40px;
+    text-align: center;
 }

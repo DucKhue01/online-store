@@ -16,16 +16,9 @@ class App{
        $actName = ucwords($actName);
        $actName = str_replace(' ', '', $actName);
       
-
        // CHAN quyen
 
       $this ->checkACL($classCT,$actName);
-
-
-
-
-
-
     //    echo $classCT;
 
        $file_controller = app_path.'/Controller/'. $classCT . '.php';
@@ -42,12 +35,7 @@ class App{
 
        $objController = new $classCT;
 
-
-
-     
-
     //    echo "<br> ten ham $actName ";
-
 
        if (method_exists($objController, $actName)) {
            $objController ->$actName();
@@ -55,10 +43,6 @@ class App{
         die("NOT EXISTS METHOD <b>$classCT::$actName</b>"  );
        }
    }
-
-
-
-
 
    public function checkACL($controllerClassName, $actionName){
       
@@ -73,7 +57,7 @@ class App{
       // kiem tra dang nhap
 
       if (empty($_SESSION['auth'])) {
-         header('Location:' . base_path . '/?act=login');
+         header('Location:' . base_path . '?act=login');
          die("ban chua dang nhap");
       }
 
@@ -94,7 +78,7 @@ class App{
 
 
    }
-
+ 
 
 
 

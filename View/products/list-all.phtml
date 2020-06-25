@@ -1,16 +1,17 @@
 
 <link rel="stylesheet" href="Public/css/list-all.css">
+<script src="https://kit.fontawesome.com/d6818a8498.js" crossorigin="anonymous"></script>
 
 <div class="tieude">
     <h2>SHOP ALL</h2>
 </div>
 <div class="container">
     <div class="filter expand">
-        <h2 >Filter by</h2>
+        <h2>Filter by </h2>
         <hr>
         <div class="conlection opti">
            
-            <div >Collection</div>
+            <div>Collection <i class="fas fa-plus btn"></i></div>
             <div class="sub-collection sub">
                 <div class="all"><p>All</p></div>
                 <div class="hand-bag"><p>Hand Bag</p></div>
@@ -22,8 +23,9 @@
         <hr>
         
         <div class="price opti">
+        
+            <div>Price <i class="fas fa-plus btn"></i></div>
             
-            <div >Price</div>
             <div class="sub-price">
             </div>
         </div>
@@ -31,13 +33,13 @@
 
         <div class="model opti">
            
-            <div >Model</div>
+            <div >Model<i class="fas fa-plus btn"></i></div>
            
         </div>
         <hr>
         <div class="size opti">
            
-            <div>Size</div>
+            <div>Size<i class="fas fa-plus btn"></i></div>
             
         </div>
         <hr>
@@ -45,27 +47,38 @@
 
 
     <div class="list-prod">
-        <?php
-            // echo '<pre>';
-            //     print_r($this->dataView);
-            // echo '</pre>'; 
+     
+        <?php 
+
 
             foreach ($this->dataView['list-prod'] as $row ) {
                 $price  = number_format($row['price']);
-                echo "<li class='items'>";
+                echo "<div class='items' >";
+                    
 
-                    echo "<a href=''>" . '<img width="100" src="'. base_path .'/Public/files/products/' . $row['id'] . ".webp".'"/>' . '</a>';
-                    echo "<div class='options'>";
-                    echo "<br><a href='#'>" . $row['name'] . '</a>';
-                    echo "<br><a href='". base_path ."?ct=products&act=add-cart&id={$row['id']}'>" . "add to cart" . '</a>';
-                    echo "<br><p>" ."$".$price. '</p>';
+                    echo "<a href='' class='avt' >" . '<img src="'. base_path .'/Public/files/products/' . $row['id'] . ".webp".'"/>' . '</a>';
+                    
+                    echo "<p class='gia'>" ."$".$price . '</p>';
+                    echo "<a href='". base_path ."?ct=products&act=add-cart&id={$row['id']}'><div  class='addToC'>" . "add to cart" . '</div></a>';
+                
+
+                    echo "<div class='options'>";  
+                        echo "<p>" . $row['name'] . '</p>';
+                        
                     echo "</div>";
-                echo "</li>";
+                
+
+                
+                echo "</div>";
             }
-        ?>
+
+
+
+            ?> 
 
     </div>
 </div>
+<hr>
 
 
 <script src="Public/js/list-all.js"></script>
