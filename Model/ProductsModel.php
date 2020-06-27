@@ -4,9 +4,9 @@
         public function getAll($params = []){
 
             $sql = 'SELECT * FROM tb_book ';
-            if (!empty($params['id_in'])) {
+            if (!empty($params)) {
 
-                $sql .= 'WHERE id IN ('. $params['id_in'] .')';  
+                $sql .= 'WHERE uid IN ('. $params .')';  
                 // echo $sql;
             }
 
@@ -19,7 +19,8 @@
             
             return $data;
         }
-
+        //can ca tien them
+        
         public function getBL(){
             $sql = "SELECT * FROM tb_book WHERE uid = 1 ";
             $res = $this -> Query($sql);

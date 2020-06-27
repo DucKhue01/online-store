@@ -20,4 +20,6 @@
 .container h2{
     text-align: center;
 }
-
+#table i{
+   margin-right: 20px;
+}

@@ -1,0 +1,124 @@
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Roboto:wght@300;500&display=swap");
+    *{
+        font-family: "Montserrat";
+        padding:0;
+        margin:0;
+        
+    }
+    form{
+      
+       width:90%;
+       height:90%;
+       position:absolute;
+        top:50%;
+        left:50%;
+        transform:translate(-50%,-50%);
+      
+
+    }
+    .container{
+        width:40%;
+        height:80vh;
+        
+        position:absolute;
+        top:50%;
+        left:54%;
+        transform:translate(-50%,-50%);
+        box-shadow:0px 0px 10px #114622;
+    }
+    label{
+        color:#114622;
+    }
+    .btn{
+        position:absolute;
+        left:50%;
+        transform:translate(-50%);
+        margin-top:20px;
+
+    }
+    /* .err{
+      width:30%;
+      height:30vh;
+      position:absolute;
+      right:40px;
+      top:10vh;
+    } */
+    .err p{
+      /* width:60%;
+      height:30vh; */
+      background-color:#ffffff;
+      box-shadow:0px 0px 10px #114622;
+      width:30%;
+      height:20vh;
+      position:absolute;
+      right:40px;
+      top:70vh;
+      text-align:center;
+      font-weight:700;
+      
+    }
+    .close{
+      position:absolute;
+      right:15px;
+      top:10px;
+    }
+  
+
+
+</style>
+
+
+
+
+<div class="container">
+<a href="<?php echo base_path?>.?ct=admin&act=admin" class="close"><i class="fas fa-times"></i></a>
+<form  action="<?php echo base_path?>?ct=admin&act=add-prod" method="post" enctype= 'multipart/form-data'>
+  <div class="form-group">
+    <label for="id">#id product(4)</label>
+    <input type="text" class="form-control" id="id" placeholder="ex:1102" name="uid">
+  </div>
+  <div class="form-group">
+    <label for="name">Name product</label>
+    <input type="text" class="form-control" id="name" placeholder="ex:cần xa" name="name">
+  </div>
+  <div class="form-group">
+    <label for="price">Price product ($)</label>
+    <input type="text" class="form-control" id="price" placeholder="ex:20" name="price">
+  </div>
+
+  <div class="form-group">
+    <label for="category">Category product (!important)</label>
+    <select class="form-control" id="category" name="category">
+      <option value='tuisach'>túi sách</option>
+      <option value='daylung'>dây lưng</option>
+      <option value='vi'>Ví</option>
+      <option value='opdt'>Ốp điện thoại</option>
+      
+    </select>
+  </div>
+  
+  <div class="form-group">
+    <label for="exampleFormControlFile1">File Image</label>
+    <input type="file" class="form-control-file"  name="fileToUpload" id="fileToUpload">
+  </div>
+  <button type="submit" class="btn btn-primary" name="submit">Add Product</button>
+
+</form>
+
+
+
+</div>
+<div class="err">
+  <?php   
+  // echo $dataView['msg'];
+    if (!empty($this->dataView['err'])) {
+       
+        echo '<p class="err">'. implode('<br>', $this->dataView['err']) . '</p>';
+    }
+    if (!empty($this->dataView['msg'])) {
+        echo '<p class="msg">'. implode('<br>', $this->dataView['msg']) . '</p>';
+    }
+  
+  ?>
+</div>

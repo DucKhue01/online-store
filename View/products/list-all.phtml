@@ -56,7 +56,7 @@
                 echo "<div class='items' >";
                     
 
-                    echo "<a href='' class='avt' >" . '<img src="'. base_path .'/Public/files/products/' . $row['id'] . ".webp".'"/>' . '</a>';
+                    echo "<a href='' class='avt' >" . '<img src="'. base_path .'/Public/files/products/' . $row['uid'] . ".webp".'"/>' . '</a>';
                     
                     echo "<p class='gia'>" ."$".$price . '</p>';
                     echo "<a href='". base_path ."?ct=products&act=add-cart&id={$row['id']}'><div  class='addToC'>" . "add to cart" . '</div></a>';

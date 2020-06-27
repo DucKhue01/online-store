@@ -20,7 +20,7 @@
         }
 
         public function login(){
-            $data = ['srr'=>[],'smg'=>[]];
+            $data = ['err'=>[],'smg'=>[]];
             if (isset($_POST['uname'])) {
                 $username = $_POST['uname'];
                 $passwd = $_POST['pwd'];
