@@ -57,7 +57,7 @@
                     $uid = $_POST['uid'];
                     $objModelSP = new ProductsModel();
 
-                    $data['check'] = $objModelSP->getAll($uid);
+                    $data['check'] = $objModelSP->getAll(['id_in'=>$uid]);
                     if (empty($data['check'])) {
                         
                     }else{
@@ -146,6 +146,19 @@
             }
 
                
+        }
+        public function Edit(){
+            $uid = $_GET['uid'];
+            $data = ['srr'=>[],'smg'=>[]];
+
+            $objModelSP = new ProductsModel();
+            
+            $data['list-prod'] = $objModelSP->getAll(['id_in'=>$uid]);
+
+            // print_r($data);
+
+
+            $this->RenderView('admin.edit', $data, 'layout-back');
         }
         
 

@@ -511,8 +511,8 @@ transform: translate(-50%);
   
 }
 .item:hover .options{
-  background-color: #114622;
-  top: 20px;
+  /* background-color: #114622; */
+  top: 19px;
   visibility: visible;
   color: #ffffff;
   
@@ -522,9 +522,9 @@ transform: translate(-50%);
   height:30px;
   
   position: absolute;
-  top: -10px;
+  top: 15px;
   visibility: hidden;
-  transition:  0.5s ;
+  transition:  0.3s ;
  
   
 }

@@ -1,0 +1,115 @@
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Roboto:wght@300;500&display=swap");
+    *{
+        font-family: "Montserrat";
+        padding:0;
+        margin:0;
+        
+    }
+    form{
+      
+       width:80%;
+       height:90%;
+       position:absolute;
+        top:50%;
+        left:50%;
+        transform:translate(-50%,-50%);
+      
+
+    }
+    .container{
+        width:65%;
+        height:90vh;
+        
+        position:absolute;
+        top:50%;
+        left:54%;
+        transform:translate(-50%,-50%);
+        box-shadow:0px 0px 10px #114622;
+    }
+    label{
+        color:#114622;
+    }
+    .btn{
+        position:absolute;
+        left:50%;
+        transform:translate(-50%);
+        margin-top:20px;
+
+    }
+    /* .err{
+      width:30%;
+      height:30vh;
+      position:absolute;
+      right:40px;
+      top:10vh;
+    } */
+    .err p{
+      /* width:60%;
+      height:30vh; */
+      background-color:#ffffff;
+      box-shadow:0px 0px 10px #114622;
+      width:30%;
+      height:20vh;
+      position:absolute;
+      right:40px;
+      top:70vh;
+      text-align:center;
+      font-weight:700;
+      
+    }
+    .close{
+      position:absolute;
+      right:15px;
+      top:10px;
+    }
+  
+
+
+</style>
+<h2>edit prod</h2>
+
+<div class="container">
+    <a href="<?php echo base_path?>.?ct=admin&act=admin" class="close"><i class="fas fa-times"></i></a>
+    <form>
+    <div class="form-group">
+        <label for="exampleFormControlInput1">#uid</label>
+        <input type="text" class="form-control"  placeholder="<?php echo $this->dataView['list-prod']['0']['uid']?>">
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Name</label>
+        <input type="text" class="form-control"  placeholder="<?php echo $this->dataView['list-prod']['0']['name']?>">
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Price</label>
+        <input type="text" class="form-control" placeholder="<?php echo $this->dataView['list-prod']['0']['price']?>">
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlSelect1">Category</label>
+        <select class="form-control" id="category" name="category">
+            <option value='tuisach'<?php echo ($this->dataView['list-prod']['0']['type'] == 'tuisach' ) ? "selected" : "" ?>>túi sách</option>
+            <option value='daylung' <?php echo ($this->dataView['list-prod']['0']['type'] == 'daylung' ) ? "selected" : "" ?>>dây lưng</option>
+            <option value='vi' <?php echo ($this->dataView['list-prod']['0']['type'] == 'vi' ) ? "selected" : "" ?>>Ví</option>
+            <option value='opdt' <?php echo ($this->dataView['list-prod']['0']['type'] == 'opdt' ) ? "selected" : "" ?>>Ốp điện thoại</option>
+            
+        </select>
+    </div>
+    
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">Detail</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary" name="submit">Change</button>
+
+    </form>
+
+
+
+  
+
+</div>
+<!-- <?php 
+  echo "<pre>";
+  print_r($this->dataView);
+  echo "</pre>";
+  ?>  -->

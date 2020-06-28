@@ -10,7 +10,7 @@
                 $sumAll = 0;
                     foreach ($this->dataView['list_prod'] as $row ) {
                                 
-                        $id_prod = $row['id'];
+                        $id_prod = $row['uid'];
                         $amount = $_SESSION['cart'][$id_prod];
                         $price  = number_format($row['price']);
                         $sum = $amount *$row['price'];

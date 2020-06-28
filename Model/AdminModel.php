@@ -1,12 +1,12 @@
 <?php 
     class AdminModel extends DB {
         public function Remove(){
-            $id = $_GET['id'];
+            $uid = $_GET['uid'];
             // $sql = 'SELECT * FROM tb_book ';
-            $sql = "DELETE FROM tb_book WHERE id = $id";
+            $sql = "DELETE FROM tb_book WHERE uid = $uid";
             if (!empty($params['id_in'])) {
 
-                $sql .= 'WHERE id IN ('. $params['id_in'] .')';  
+                $sql .= 'WHERE uid IN ('. $params['id_in'] .')';  
                 // echo $sql;
             }
 
@@ -47,6 +47,9 @@
           return $msg;
           
         }
+        // public function (){
+          
+        // }
 
 
         

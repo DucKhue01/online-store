@@ -6,7 +6,7 @@
             $sql = 'SELECT * FROM tb_book ';
             if (!empty($params)) {
 
-                $sql .= 'WHERE uid IN ('. $params .')';  
+                $sql .= 'WHERE uid IN ('. $params['id_in'].')';  
                 // echo $sql;
             }
 
