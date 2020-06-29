@@ -19,7 +19,7 @@
     }
     .container{
         width:65%;
-        height:80vh;
+        height:120vh;
         
         position:absolute;
         top:50%;
@@ -63,6 +63,14 @@
       right:15px;
       top:10px;
     }
+    img{
+        /* width:300px; */
+        height:200px;
+        margin-top:20px;
+    }
+    #accordionSidebar{
+      height:140vh;
+    }
   
 
 
@@ -101,6 +109,7 @@
   <div class="form-group">
     <label for="exampleFormControlFile1">File Image</label>
     <input type="file" class="form-control-file"  name="fileToUpload" id="fileToUpload">
+    <img id="image"/>
   </div>
   <button type="submit" class="btn btn-primary" name="submit">Add Product</button>
 
@@ -122,3 +131,21 @@
   
   ?>
 </div>
+
+
+<script>
+    document.getElementById("fileToUpload").onchange = function () {
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+        // get loaded data and render thumbnail.
+        document.getElementById("image").src = e.target.result;
+    };
+
+    // read the image file as a data URL.
+    reader.readAsDataURL(this.files[0]);
+    };
+
+
+
+</script> 

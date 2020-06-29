@@ -39,17 +39,33 @@
           return $msg;
         }
         public function Rename($target_file,$uid){
-          if (rename( $target_file, 'Public/files/products/'.$uid.'.webp')) {
-           $msg = "thang cong";
-          }else{
-            $msg = "loi";
+          if (file_exists($target_file)) {
+            if (rename( $target_file, 'Public/files/products/'.$uid.'.webp')) {
+              $msg = "thang cong";
+             }else{
+               $msg = "loi";
+             }
+             return $msg;
+           
+          }
+
+          
+          
+        }
+        public function Edit($oldUid,$uid,$name,$price,$category){
+          // $sql = "INSERT INTO `tb_book` (name, price, uid,type) VALUES ('$name','$price','$uid','$category')";       
+          $sql = "UPDATE `tb_book`
+                  SET name = '$name', price = '$price', uid = '$uid', type = '$category'
+                  WHERE uid = $oldUid;";
+
+
+          if ( $this -> Query($sql)) {
+            $msg = "your prod has been edited";
+            
           }
           return $msg;
           
         }
-        // public function (){
-          
-        // }
 
 
         

@@ -3,7 +3,7 @@
     require_once app_path. '/Model/AdminModel.php';
 
     class AdminController extends ControllerBase{
-        public function Admin(){
+        public function Prod(){
             $data = ['srr'=>[],'smg'=>[]];
 
             $objModelSP = new ProductsModel();
@@ -13,11 +13,10 @@
 
 
 
-            $this->RenderView('admin.admin', $data, 'layout-back');
+            $this->RenderView('admin.prod', $data, 'layout-back');
         }
         public function Index(){
             
-
 
 
 
@@ -148,22 +147,55 @@
                
         }
         public function Edit(){
-            $uid = $_GET['uid'];
+            $oldUid = $_GET['uid'];
             $data = ['srr'=>[],'smg'=>[]];
 
             $objModelSP = new ProductsModel();
             
-            $data['list-prod'] = $objModelSP->getAll(['id_in'=>$uid]);
+            $data['list-prod'] = $objModelSP->getAll(['id_in'=>$oldUid]);
 
-            // print_r($data);
+            // print_r($uid);
+            if(isset($_POST["submit"])){
+                $name = $_POST['name'];
+                $price = $_POST['price'];
+                $category = $_POST['category'];
+                $uid = $_POST['uid'];
 
+
+              
+                $objModelSP = new AdminModel();
+                $data['msg'][] = $objModelSP->Edit($oldUid,$uid,$name,$price,$category);
+                
+                if ($_FILES['fileToUpload']['error'] != 0) {
+                    // echo "khong co file upload";
+                    $target_file = 'Public/files/products/'.$oldUid.'.webp';
+                    $data['msg'][] = $objModelSP->Rename($target_file,$uid);
+                }else{
+                    $target_dir =  "Public/files/products/";
+                    $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+                    $data['msg'][] = $objModelSP->Upload($target_file);
+                    $file = 'Public/files/products/'.$oldUid.'.webp';
+                    if (file_exists($file)) {
+                        unlink($file);
+                    }
+                    $data['msg'][] = $objModelSP->Rename($target_file,$uid);
+
+                }
+
+
+
+
+            }
 
             $this->RenderView('admin.edit', $data, 'layout-back');
+
+        }
+        public function Staff(){
+            $this->RenderView('admin.staff', $data, 'layout-back');
+            
         }
         
-
-      
-                   
+             
     }
     
 

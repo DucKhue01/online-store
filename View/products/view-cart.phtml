@@ -18,11 +18,11 @@
                         $sum = number_format($sum);
                         echo"<div class='items'>
                                         
-                                <div class='imgs'> <img src='" . base_path . "/Public/files/products/{$row['id']}.webp' width='100'>   </div> 
+                                <div class='imgs'> <img src='" . base_path . "/Public/files/products/{$row['uid']}.webp' width='100'>   </div> 
                                 <div class='name'>{$row['name']}</div>
                                 <div class='price'>{$price}</div>
-                                <a href='/practive/online-store/?ct=products&act=remove&id=$id_prod''>remove</a>
-                                            
+                                <a href='/practive/online-store/?ct=products&act=remove&id=$id_prod'>remove</a>
+                                          
                                 <div class='amount'>
                                     <a href='/practive/online-store/?ct=products&act=red-prod&id=$id_prod'><i class='fas fa-minus' ></i></a>
                                     {$amount}
