@@ -100,6 +100,20 @@
             header("Location:$chuyen_trang");
             
         }
+        public function Filter(){
+            $data = ['srr'=>[],'smg'=>[]];
+            $category =$_GET['category'];
+
+            $objModelSP = new ProductsModel();
+            
+            $data['list-prod'] = $objModelSP->getAllByType($category);
+            
+            $this->RenderView('products.list-all', $data, 'layout-front');
+            
+
+           
+            
+        }
 
 
 

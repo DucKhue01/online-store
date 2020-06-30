@@ -98,12 +98,23 @@ body{
     margin:0px;
 
 }
-.sub-collection p {
+.sub-price{
+    visibility: hidden;
+    height:0px;
+    margin:0px;
+
+}
+.sub-collection a{
     font-size: 12px;
+   
+}
+.sub-price a{
+    font-size: 12px;
+   
 }
 .change{
     visibility: visible;
-    height:80px;
+    height:150px;
     margin:10px 0 0 10px;
 
 }
@@ -121,10 +132,10 @@ body{
     font-size: 25px;
 
 }
-.filter hr{
+/* .filter hr{
     height: 0.1px;
     color: rgb(255, 255, 255);
-}
+} */
 
 
 .addToC{
@@ -140,27 +151,38 @@ body{
 }
 
 .items:hover .options{
-    background-color: #114622;
-    top: 0px;
+  
+   
     visibility: visible;
-    color: #ffffff;
+    
+    height:35px;
     
   }
-  .options{
+.options{
     width: 183px;
-    height:30px;
+    height:0px;
     
     position: absolute;
-    top: -10px;
+    top: 0px;
     visibility: hidden;
-    transition:  0.3s ;
+    transition:  0.2s ;
+    background-color: #ffffff;
    
     
-  }
-  .options p{
+}
+.items:hover .options P{
+    visibility: visible;
+}
+
+
+
+.options p{
     letter-spacing: 3px;
     margin-top: 2px;
-  }
+    visibility: hidden;
+    transition:  0.1s ;
+    color:rgb(0, 0, 0);
+}
 .btn{
    
     height: 30px;

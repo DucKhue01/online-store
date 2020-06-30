@@ -21,8 +21,8 @@
         }
         //can ca tien them
         
-        public function getBL(){
-            $sql = "SELECT * FROM tb_book WHERE uid = 1 ";
+        public function getAllByType($category){
+            $sql = "SELECT * FROM tb_book WHERE type = '$category' ";
             $res = $this -> Query($sql);
             $data = [];
 

@@ -11,9 +11,9 @@
     
             $objModelSP = new ProductsModel();
                 
-            $data['list-prod'] = $objModelSP->getBL();
+            // $data['list-prod'] = $objModelSP->getBL();
     
-            $this->RenderView('index.index', $data, 'layout-front');
+            $this->RenderView('index.index', [], 'layout-front');
             
   
             

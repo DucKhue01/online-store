@@ -1,6 +1,11 @@
-document.querySelector(".fas").addEventListener('click',() =>{
-    document.querySelector(".sub").classList.toggle("change");
+document.querySelector(".btn-collect").addEventListener('click',() =>{
+    document.querySelector(".sub-collection").classList.toggle("change");
     
+});
+
+document.querySelector(".btn-price").addEventListener('click',() =>{
+  document.querySelector(".sub-price").classList.toggle("change");
+  
 });
     
 
@@ -22,3 +27,5 @@ document.querySelectorAll('.btn').forEach(item => {
     }       
     })
   })
+
+  

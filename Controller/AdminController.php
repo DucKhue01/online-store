@@ -191,7 +191,11 @@
 
         }
         public function Staff(){
-            $this->RenderView('admin.staff', $data, 'layout-back');
+            $this->RenderView('admin.staff', [], 'layout-back');
+            
+        }
+        public function Order(){
+            $this->RenderView('admin.order', [], 'layout-back');
             
         }
         
