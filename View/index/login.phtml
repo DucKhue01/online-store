@@ -1,8 +1,24 @@
 <script src="https://kit.fontawesome.com/d6818a8498.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="Public/css/login.css">
 
-<div>
-        
+<div class="memo">
+    <?php
+        $this ->showContent();
+    ?>
+    <p>
+         <?php   
+            // print_r($this->dataview['smg']);
+         
+            if (!empty($this->dataView['err'])) {
+                 echo '<p class="err">'. implode('<br>', $this->dataView['err']) . '</p>';
+            }
+            if (!empty($this->dataView['smg'])) {
+                echo '<p class="smg">'. implode('<br>', $this->dataView['smg']) . '</p>';
+            }
+         ?>
+                                                
+    </p>
+                        
 </div>
 <section class="container01">
 
@@ -12,13 +28,13 @@
             <div class="form sign-in-form">
             
                 <div class="wrapper">
-                    <form action="" method="post">
+                    <form action="<?php echo base_path?>?act=sign-up" method="post">
                         <h1>Sign up</h1>
                         <p>Please, provide all the correct info to create an account</p>
-                        <input type="text" placeholder="Full Name">
-                        <input type="email" placeholder="Email">
-                        <input type="password" placeholder="password">
-                        <button type="submit">Sign Up</button>
+                        <input type="text" placeholder="User Name" name="uname01">
+                        <input type="email" placeholder="Email" name="email01">
+                        <input type="password" placeholder="password" name="pwd01">
+                        <button type="submit" name='submit'>Sign Up</button>
                     </form>
                     
                 </div>
@@ -33,23 +49,7 @@
                         
                         <button type="submit" id="signin">Sign In</button>
                         
-                        <div class="memo">
-                            <?php
-                                $this ->showContent();
-                            ?>
-                            <p>
-                                <?php   
-                                    if (!empty($this->dataView['err'])) {
-                                        echo '<p class="err">'. implode('<br>', $this->dataView['err']) . '</p>';
-                                    }
-                                    if (!empty($this->dataview['msg'])) {
-                                        echo '<p class="msg">'. implode('<br>', $this->dataView['msg']) . '</p>';
-                                    }
-                                ?>
-                                                
-                            </p>
                         
-                        </div>
                         
                         
                     </form>
@@ -59,14 +59,20 @@
             <div class="overlay-container-login">
             <div class="overlay">
                 <div class="overlay-left">
-                    <h1>Create Account</h1>
-                    <p>or</p>
-                    <button id="signInButton">Log In</button>
-                </div>
-                <div class="overlay-right">
                     <h1>Please, Log In</h1>
                     <p>or</p>
-                    <button id="signUpButton">Create Account</button>
+                   
+                    <button id="signInButton"> Create Account</button>
+                </div>
+                <div class="overlay-right">
+                  
+
+                    <h1>Create Account</h1>
+                    <p>or</p>
+                    
+                    <button id="signUpButton">  Log In</button>
+
+
                 </div>
             </div>
             </div>

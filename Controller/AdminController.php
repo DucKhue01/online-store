@@ -23,7 +23,7 @@
             $this->RenderView('admin.index', [], 'layout-back');
         }
         public function Delete(){
-            $chuyen_trang = base_path . "?ct=admin&act=admin";
+            $chuyen_trang = base_path . "?ct=admin&act=prod";
 
 
             // $data = ['srr'=>[],'smg'=>[]];

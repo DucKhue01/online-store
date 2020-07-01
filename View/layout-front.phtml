@@ -28,12 +28,17 @@
         <div class="cart-log">
         <?php
             //phan hien thi so luong trong gio hang
+                
+
+
+
 
             if (!empty($_SESSION['cart'])) {
                         
                 // echo "<a href='". base_path . "?ct=products&act=view-cart >'" . "Cart(" . count($_SESSION['cart']) . ")" . "</a>";
                 echo "<a class='cart' href='" . base_path . "?ct=products&act=view-cart'>". "Cart(" . count($_SESSION['cart']) . ")"  ."</a>";
-            
+                // unset($_SESSION['cart']);
+                // print_r($_SESSION['cart']);
 
 
             }else{
