@@ -49,7 +49,7 @@ class App{
       $ct = str_replace('Controller', '', $controllerClassName);
 
       $strCheck = $ct . '.' . $actionName;
-      $arr_public_action = ['Index.Index', 'Index.Login','Products.ListAll','Products.AddCart','Products.ViewCart','Products.RedProd', 'Products.IncProd','Products.Remove','Products.Filter','Index.SignUp'];
+      $arr_public_action = ['Index.Index', 'Index.Login','Products.ListAll','Products.AddCart','Products.ViewCart','Products.RedProd', 'Products.IncProd','Products.Remove','Products.Filter','Index.SignUp','Products.ToPay'];
 
       if (in_array($strCheck, $arr_public_action)) {
          return true;

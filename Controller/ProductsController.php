@@ -114,6 +114,69 @@
            
             
         }
+        public function ToPay(){
+            $data = ['err'=>[],'smg'=>[]];
+
+            if (isset($_POST['submit'])){
+               
+               
+              
+                    if (!empty($_POST['fullname'])){
+                        $fullName = $_POST['fullname'];
+                      
+
+                    }else{
+                        $data['err'][] = "thieu ten";
+                    };
+
+
+                    if (!empty($_POST['dc'])){
+                        $dc = $_POST['dc'];
+                      
+
+                    }else{
+                        $data['err'][] = "thieu dia chi";
+                    };
+
+
+
+                    if (!empty($_POST['pnb'])){
+                        $pnb = $_POST['pnb'];
+                      
+                    }else{
+                        $data['err'][] = "thieu s dien thoai";
+                    };
+
+
+
+                    if (!empty($_POST['email'])){
+                        $email = $_POST['email'];
+                        
+                    }else{
+                        $data['err'][] = "thieu email";
+                    }
+
+
+                    if (empty($data['err'])) {
+                        $data['smg'][] ="ban da dat hang thanh cong";
+                    }else{
+                        
+                    }
+
+                    
+
+
+
+
+
+
+               
+            }
+
+
+
+            $this->RenderView('products.toPay', $data, 'layout-front');
+        }
 
 
 

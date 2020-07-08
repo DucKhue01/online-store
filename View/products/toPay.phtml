@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"> -->
+    <style>
+    .container{
+        width:50%;
+        height:90vh;
+        /* border:1px solid black; */
+        padding:40px;
+        box-shadow: 0 0 5px black;
+        margin-bottom:50px;
+        position:relative;
+        left:20%;
+        
+    }
+    .form-group{
+        width:110%;
+        height:20vh;
+        /* border:1px solid black; */
+
+    }
+    .form-group input{
+        width:80%;
+        height:7vh;
+        border-radius:10px;
+        border:1px solid rgb(31, 92, 51);
+        outline:none;
+        margin: 10px 0px 10px 0px;
+
+    }
+    .form-group input:hover{
+        border:1.5px solid rgb(31, 92, 51);
+    }
+    .form-group{
+        display:flex;
+        flex-direction:column;
+    }
+    .btn{
+        width:180px;
+        height:60px;
+        border-radius:10px;
+        cursor:pointer;
+        border:1.5px solid rgb(31, 92, 51);
+        outline:none;
+    }
+    .mm{
+        position:absolute;
+        right:150px;
+        top:85vh;
+        
+    }
+  
+   
+
+
+</style>
+
+
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <form action='<?php echo base_path ?>?ct=products&act=to-pay' method="post">
+            <div class="form-group">
+                <label for="exampleInputEmail1">address</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="enter your address" name="dc">
+                <small id="emailHelp" class="form-text text-muted">abc</small>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">full name</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="enter your name" name="fullname">
+                <small id="emailHelp" class="form-text text-muted">abc</small>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">phone number</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="enter your phone number" name="pnb">
+                <small id="emailHelp" class="form-text text-muted">abc</small>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+
+
+
+
+            
+            <button type="submit" class="btn " name ="submit">Submit</button>
+        </form>
+       <div class="mm">
+       <?php   
+                // print_r($this->dataview['smg']);
+            
+                if (!empty($this->dataView['err'])) {
+                    echo '<p class="err">'. implode('<br>', $this->dataView['err']) . '</p>';
+                }
+                if (!empty($this->dataView['smg'])) {
+                    echo '<p class="smg">'. implode('<br>', $this->dataView['smg']) . '</p>';
+                }
+        ?></div>
+    </div>
+    
+</body>
+</html>
