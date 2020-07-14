@@ -32,6 +32,19 @@
             
             return $data;
         }
+        public function getProduct($id){
+
+            $sql = "SELECT * FROM tb_book WHERE `uid` = $id";
+
+            $res = $this -> Query($sql);
+            $data = [];
+            while ($row = $res ->fetch_assoc()) {
+                $data = $row;
+            }
+
+            return $data;
+        }
 
     }
+
 
