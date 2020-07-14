@@ -13,11 +13,11 @@
            
             <div>Collection <i class="fas fa-plus btn btn-collect"></i></div>
             <div class="sub-collection sub">
-                <div class="all" ><a href="<?php echo base_path ?>?ct=products&act=list-all">All</a></div>
-                <div class="hand-bag" ><a href="<?php echo base_path ?>?ct=products&act=filter&category=tuisach">bag</a></div>
-                <div class="dong-ho"><a href="<?php echo base_path ?>?ct=products&act=filter&category=vi">wallet</a></div>
-                <div class="vi"><a href="<?php echo base_path ?>?ct=products&act=filter&category=daylung">leather belts</a></div>
-                <div class="vi"><a href="<?php echo base_path ?>?ct=products&act=filter&category=opdt">phone covers</a></div>
+                <div class="all" ><a href="index.php?ct=products&act=list-all">All</a></div>
+                <div class="hand-bag" ><a href="index.php?ct=products&act=filter&category=tuisach">bag</a></div>
+                <div class="dong-ho"><a href="index.php?ct=products&act=filter&category=vi">wallet</a></div>
+                <div class="vi"><a href="index.php?ct=products&act=filter&category=daylung">leather belts</a></div>
+                <div class="vi"><a href="index.php?ct=products&act=filter&category=opdt">phone covers</a></div>
 
             </div>
         </div>
@@ -28,11 +28,11 @@
             <div>Price <i class="fas fa-plus btn btn-price" ></i></div>
             
             <div class="sub-price sub">
-                <div class="all"><a href="<?php echo base_path ?>?ct=products&act=list-all">All</a></div>
-                <div class="hand-bag" ><a href="<?php echo base_path ?>?ct=products&act=filter&category=tuisach">0 - $50</a></div>
-                <div class="hand-bag" ><a href="<?php echo base_path ?>?ct=products&act=filter&category=tuisach">$20-$50</a></div>
-                <div class="hand-bag" ><a href="<?php echo base_path ?>?ct=products&act=filter&category=tuisach">$50-$100</a></div>
-                <div class="hand-bag" ><a href="<?php echo base_path ?>?ct=products&act=filter&category=tuisach"><$100</a></div>
+                <div class="all"><a href="index.php?ct=products&act=list-all">All</a></div>
+                <div class="hand-bag" ><a href="index.php?ct=products&act=filter&category=tuisach">0 - $50</a></div>
+                <div class="hand-bag" ><a href="index.php?ct=products&act=filter&category=tuisach">$20-$50</a></div>
+                <div class="hand-bag" ><a href="index.php?ct=products&act=filter&category=tuisach">$50-$100</a></div>
+                <div class="hand-bag" ><a href="index.php?ct=products&act=filter&category=tuisach"><$100</a></div>
                
             </div>
         </div>
@@ -63,10 +63,10 @@
                 echo "<div class='items' >";
                     
 
-                    echo "<a href='' class='avt' >" . '<img src="'. base_path .'/Public/files/products/' . $row['uid'] . ".webp".'"/>' . '</a>';
+                    echo "<a href='' class='avt' >" . '<img src="Public/files/products/' . $row['uid'] . ".webp".'"/>' . '</a>';
                     
                     echo "<p class='gia'>" ."$".$price . '</p>';
-                    echo "<a href='". base_path ."?ct=products&act=add-cart&id={$row['uid']}'><div  class='addToC'>" . "add to cart" . '</div></a>';
+                    echo "<a href='index.php?ct=products&act=add-cart&id={$row['uid']}'><div  class='addToC'>" . "add to cart" . '</div></a>';
                 
 
                     echo "<div class='options'>";  
