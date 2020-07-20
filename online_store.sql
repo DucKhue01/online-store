@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 04, 2020 at 09:29 AM
+-- Generation Time: Jul 20, 2020 at 11:17 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.6
 
@@ -69,7 +69,8 @@ CREATE TABLE `tb_book` (
 --
 
 INSERT INTO `tb_book` (`name`, `price`, `uid`, `type`) VALUES
-('khue', 1, 1, 'daylung');
+('khue', 1, 1, 'daylung'),
+('khuefff', 20, 2828, 'vi');
 
 -- --------------------------------------------------------
 
@@ -111,30 +112,10 @@ CREATE TABLE `tb_customer` (
 
 INSERT INTO `tb_customer` (`id`, `fullname`, `phone`, `email`, `address`) VALUES
 (1, 'Dang Thai Son', '0968902116', 'sonmobi@gmail.com', 'Nam Tu Liem'),
-(2, 'Nguyễn Thị Hương', '', '', '');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tb_oder_detail`
---
-
-CREATE TABLE `tb_oder_detail` (
-  `id_order` int(11) NOT NULL,
-  `id_book` int(11) NOT NULL,
-  `quantity` int(11) NOT NULL,
-  `price` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
-
---
--- Dumping data for table `tb_oder_detail`
---
-
-INSERT INTO `tb_oder_detail` (`id_order`, `id_book`, `quantity`, `price`) VALUES
-(1, 1, 1, 50000),
-(1, 2, 5, 25000),
-(2, 3, 7, 300000),
-(2, 4, 55, 100000);
+(2, 'Nguyễn Thị Hương', '', '', ''),
+(3, 'aasdasd', ' 0984674955', 'khue2001hd@gmail.com', 'khue2001hd@gmail.com'),
+(4, 'cao duc khue', '0984674955', 'duckhuejs@gmail.com', 'duckhuejs@gmail.com'),
+(5, 'dfsdfsdf', '055555555', 'khue2001hd@gmail.com', 'khue2001hd@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -155,7 +136,45 @@ CREATE TABLE `tb_order` (
 
 INSERT INTO `tb_order` (`id`, `id_customer`, `time_oder`, `status`) VALUES
 (1, 1, '2017-11-27 02:47:39', 1),
-(2, 2, '2019-11-19 15:10:54', 1);
+(2, 2, '2019-11-19 15:10:54', 1),
+(3, 3, '2020-07-14 18:25:11', 1),
+(4, 3, '2020-07-14 18:29:33', 1),
+(5, 3, '2020-07-14 18:30:06', 1),
+(6, 4, '2020-07-15 13:37:47', 1),
+(7, 3, '2020-07-16 13:36:53', 1),
+(8, 5, '2020-07-20 16:08:01', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_order_detail`
+--
+
+CREATE TABLE `tb_order_detail` (
+  `id_order` int(11) NOT NULL,
+  `id_book` int(11) NOT NULL,
+  `quality` int(11) NOT NULL,
+  `price` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
+
+--
+-- Dumping data for table `tb_order_detail`
+--
+
+INSERT INTO `tb_order_detail` (`id_order`, `id_book`, `quality`, `price`) VALUES
+(1, 1, 1, 50000),
+(1, 2, 5, 25000),
+(2, 3, 7, 300000),
+(2, 4, 55, 100000),
+(4, 1, 1, 1),
+(4, 2828, 1, 20),
+(5, 1, 1, 1),
+(5, 2828, 1, 20),
+(6, 1, 1, 1),
+(7, 1, 1, 1),
+(7, 2828, 1, 20),
+(8, 1, 1, 1),
+(8, 2828, 1, 20);
 
 -- --------------------------------------------------------
 
@@ -252,21 +271,19 @@ ALTER TABLE `tb_cat`
 -- Indexes for table `tb_customer`
 --
 ALTER TABLE `tb_customer`
-  ADD PRIMARY KEY (`id`) USING BTREE,
-  ADD UNIQUE KEY `phone` (`phone`) USING BTREE,
-  ADD UNIQUE KEY `email` (`email`) USING BTREE;
-
---
--- Indexes for table `tb_oder_detail`
---
-ALTER TABLE `tb_oder_detail`
-  ADD PRIMARY KEY (`id_order`,`id_book`) USING BTREE;
+  ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
 -- Indexes for table `tb_order`
 --
 ALTER TABLE `tb_order`
   ADD PRIMARY KEY (`id`) USING BTREE;
+
+--
+-- Indexes for table `tb_order_detail`
+--
+ALTER TABLE `tb_order_detail`
+  ADD PRIMARY KEY (`id_order`,`id_book`) USING BTREE;
 
 --
 -- Indexes for table `tb_pms`
@@ -303,13 +320,13 @@ ALTER TABLE `tb_cat`
 -- AUTO_INCREMENT for table `tb_customer`
 --
 ALTER TABLE `tb_customer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tb_order`
 --
 ALTER TABLE `tb_order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tb_pms`
