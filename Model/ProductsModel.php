@@ -44,6 +44,36 @@
 
             return $data;
         }
+        public function getBSL() {
+        $sql = "select *  tb_order_detail ";
+
+        $res = $this -> Query($sql);
+        $data = [];
+        $newData = [];
+        while ($row = $res ->fetch_assoc()) {
+            $data[] = $row; 
+        }
+        foreach ( $data as $item ) {
+            if (!in_array( $item['uid'], $newData )) {
+                
+            }else{
+                
+            }
+            
+            // xu li best seller bang list
+
+
+
+
+
+
+
+
+        return $data;
+                
+        }
+
+
 
     }
 

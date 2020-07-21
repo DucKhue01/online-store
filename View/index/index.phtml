@@ -18,7 +18,7 @@
     
 
 
-    <div class="app">
+    <!-- <div class="app">
 
         <div class="cardList">
             <button class="cardList__btn btn btn--left">
@@ -32,19 +32,19 @@
             <div class="cards__wrapper">
                 <div class="card current--card">
                     <div class="card__image">
-                        <img src="View/index/images/scotland-mountains.jpg" alt="" />
+                        <img src="View/index/images/slide01.webp" alt="" />
                     </div>
                 </div>
 
                 <div class="card next--card">
                     <div class="card__image">
-                        <img src="View/index/images/machu-pichu.jpg" alt="" />
+                        <img src="View/index/images/slide02.webp" alt="" />
                     </div>
                 </div>
 
                 <div class="card previous--card">
                     <div class="card__image">
-                        <img src="View/index/images/chamonix.jpg" alt="" />
+                        <img src="View/index/images/slide03.webp" alt="" />
                     </div>
                 </div>
             </div>
@@ -61,21 +61,21 @@
         <div class="infoList">
             <div class="info__wrapper">
                 <div class="info current--info">
-                    <h1 class="text name">Scotland Mountains</h1>
+                    <h1 class="text name">FANNY PACK</h1>
                     <h4 class="text location">UK</h4>
-                    <p class="text description">The nature!</p>
+                    <p class="text description">Family Owned</p>
                 </div>
 
                 <div class="info next--info">
-                    <h1 class="text name">Machu Pichu</h1>
-                    <h4 class="text location">Peru</h4>
-                    <p class="text description">Adventure is never far away</p>
+                    <h1 class="text name">MINI LEATHER GOODS</h1>
+                    <h4 class="text location">USA</h4>
+                    <p class="text description">Created in the USA</p>
                 </div>
 
                 <div class="info previous--info">
-                    <h1 class="text name">Chamonix</h1>
+                    <h1 class="text name"> LEATHER BELTS</h1>
                     <h4 class="text location">France</h4>
-                    <p class="text description">Let your dreams come true</p>
+                    <p class="text description">Hand Crafted</p>
                 </div>
             </div>
         </div>
@@ -83,13 +83,13 @@
 
         <div class="app__bg">
             <div class="app__bg__image current--image">
-                <img src="View/index/images/scotland-mountains.jpg" alt="" />
+                <img src="View/index/images/slide03.webp" alt="" />
             </div>
             <div class="app__bg__image next--image">
-                <img src="View/index/images/machu-pichu.jpg" alt="" />
+                <img src="View/index/images/slide02.webp" alt="" />
             </div>
             <div class="app__bg__image previous--image">
-                <img src="View/index/images/chamonix.jpg" alt="" />
+                <img src="View/index/images/slide01.webp"  alt="" />
             </div>
         </div>
     </div>
@@ -117,7 +117,7 @@
     <script src="View/index/js/imagesLoaded.pkgd.min.js"></script>
     <script src="View/index/js/softripple.min.js"></script>
     <script src="View/index/js/gsap.min.js"></script>
-    <script src="View/index/js/script.js"></script>
+    <script src="View/index/js/script.js"></script> -->
 
 
 <div class="best-seller">
@@ -129,33 +129,30 @@
     <div class="owl-carousel owl-theme">
     
         
-        <?php 
+    <?php
+        echo  '<pre>';
+        print_r($this->dataView['list-prod']);
+        echo  '</pre>';
+        foreach ($this->dataView['list-prod'] as $row ) {
+            $price  = number_format($row['price']);
+            echo "<div class='items' >";
+                
 
+                echo "<a href='' class='avt' >" . '<img src="Public/files/products/' . $row['uid'] . ".webp".'"/>' . '</a>';
+                
+                echo "<p class='gia'>" ."$".$price . '</p>';
+                echo "<a href='index.php?ct=products&act=add-cart&id={$row['uid']}'><div  class='addToC'>" . "add to cart" . '</div></a>';
+            
 
-                    // foreach ($this->dataView['list-prod'] as $row ) {
-                    //     $price  = number_format($row['price']);
-                    //     echo "<div class='item' >";
-                            
-        
-                    //         echo "<a href='' class='avt' >" . '<img src="'. base_path .'/Public/files/products/' . $row['uid'] . ".webp".'"/>' . '</a>';
-                            
-                    //         echo "<p>" ."$".$price . '</p>';
-                    //         echo "<a href='". base_path ."?ct=products&act=add-cart&id={$row['uid']}'><div  class='addToC'>" . "add to cart" . '</div></a>';
-                           
+                echo "<div class='options'>";  
+                    echo "<p>" . $row['name'] . '</p>';
+                    
+                echo "</div>";
+            
 
-                    //         echo "<div class='options'>";  
-                    //             echo "<p>" . $row['name'] . '</p>';
-                                
-                    //         echo "</div>";
-                           
-
-                           
-                    //     echo "</div>";
-                    // }
-
-
-
-            ?> 
+            
+            echo "</div>";
+    }?>
       
     
 

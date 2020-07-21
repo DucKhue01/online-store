@@ -50,10 +50,7 @@ class UserModel extends DB{
                 
     }
     public function addAcc($user,$email,$passwd){
-        
-
-
-        
+      
         $sql = "INSERT INTO `$this->tb` (username, passwd, email,id_role)
                 VALUES ('$user', '$passwd','$email' , '3')";
 

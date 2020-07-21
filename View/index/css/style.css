@@ -489,49 +489,7 @@ transform: translate(-50%);
   background-color: #114622;
   color: #ffffff;
 }
-.addToC{
-  width: 183px;
-  height: 40px;
-  border: 1px solid black;
-  line-height: 40px;
-  color: #114622;
-}
-.addToC:hover{
-  background-color: #114622;
-  color: #ffffff;
-}
 
-
-
-.item img{
-  width:183px;
-  height:244px;
-  z-index: 10;
- 
-  
-}
-.item:hover .options{
-  /* background-color: #114622; */
-  top: 19px;
-  visibility: visible;
-  color: #ffffff;
-  
-}
-.options{
-  width: 183px;
-  height:30px;
-  
-  position: absolute;
-  top: 15px;
-  visibility: hidden;
-  transition:  0.3s ;
- 
-  
-}
-.options p{
-  letter-spacing: 3px;
-  margin-top: 2px;
-}
 .contact-img{
   width: 100%;
   height: 350px;
@@ -562,4 +520,72 @@ transform: translate(-50%);
   visibility: hidden;
   font-size: 13px;
   color: #ffffff;
+}
+
+
+.items:hover .options{
+  
+   
+  visibility: visible;
+  
+  height:35px;
+  
+}
+.options{
+  width: 183px;
+  height:0px;
+  
+  position: absolute;
+  top: 0px;
+  visibility: hidden;
+  transition:  0.2s ;
+  background-color: #ffffff;
+ 
+  
+}
+.items:hover .options P{
+  visibility: visible;
+}
+
+
+
+.options p{
+  letter-spacing: 3px;
+  margin-top: 2px;
+  visibility: hidden;
+  transition:  0.1s ;
+  color:rgb(0, 0, 0);
+}
+
+
+.addToC{
+  width: 183px;
+  height: 40px;
+  border: 1px solid black;
+  line-height: 40px;
+  color: #114622;
+}
+.addToC:hover{
+  background-color: #114622;
+  color: #ffffff;
+}
+
+.items{
+    
+  margin-left: 40px;
+  float: left;
+  height:50vh;
+  width:183px;
+  text-align: center;
+  /* border: 1px solid red; */
+  margin-bottom: 8vh;
+  position: relative;
+}
+.items .gia{
+  letter-spacing: 3px;
+  color: #114622;
+  font-size: 15px;
+  /* text-transform: inherit; */
+  font-style: italic;
+  margin-top: 10px;
 }
