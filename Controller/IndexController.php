@@ -12,9 +12,9 @@
             $objModelSP = new ProductsModel();
             
             $data['list-prod'] = $objModelSP->getBSL();
-            
+           
          
-    
+          
             $this->RenderView('index.index',$data, 'layout-front');
             
   

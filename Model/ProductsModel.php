@@ -45,35 +45,36 @@
             return $data;
         }
         public function getBSL() {
-        $sql = "select *  tb_order_detail ";
+            $sql = "select *  from tb_order_detail ";
 
-        $res = $this -> Query($sql);
-        $data = [];
-        $newData = [];
-        while ($row = $res ->fetch_assoc()) {
-            $data[] = $row; 
-        }
-        foreach ( $data as $item ) {
-            if (!in_array( $item['uid'], $newData )) {
-                
-            }else{
-                
-            }
+            $res = $this -> Query($sql);
+            $data = [];
+            $newData = [];
             
-            // xu li best seller bang list
+            while ($row = $res ->fetch_assoc()) {
+                $data[] = $row; 
+            }
+            foreach ( $data as $item) {
+                if (array_key_exists($item['id_book'],$newData)) {
+                    // array_push($newData,$item['id_book']);                    
+                    $newData[$item['id_book']] += $item['quality'];
 
-
-
-
-
-
-
-
-        return $data;
-                
+                }else{
+                    $newData[$item['id_book']] = $item['quality'];                  
+                    
+                }                      
+            }
+            arsort($newData);
+            $newArray = array_keys($newData);
+            $idBSL = [] ;
+            for ($i= 0; $i < 6; $i++) { 
+                $idBSL[] =  $newArray[$i];
+            }
+            $list_id_bestsl = array_values($idBSL);
+            $list_id_bestsl = implode(',', $list_id_bestsl);
+            $dataBSL = $this->getAll(['id_in'=>$list_id_bestsl]);
+            return $dataBSL ; 
         }
-
-
 
     }
 

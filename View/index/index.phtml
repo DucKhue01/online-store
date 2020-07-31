@@ -18,7 +18,7 @@
     
 
 
-    <!-- <div class="app">
+    <div class="app">
 
         <div class="cardList">
             <button class="cardList__btn btn btn--left">
@@ -117,7 +117,7 @@
     <script src="View/index/js/imagesLoaded.pkgd.min.js"></script>
     <script src="View/index/js/softripple.min.js"></script>
     <script src="View/index/js/gsap.min.js"></script>
-    <script src="View/index/js/script.js"></script> -->
+    <script src="View/index/js/script.js"></script> 
 
 
 <div class="best-seller">
@@ -130,9 +130,10 @@
     
         
     <?php
-        echo  '<pre>';
-        print_r($this->dataView['list-prod']);
-        echo  '</pre>';
+        // echo'<pre>';
+        // print_r($this->dataView['list-prod']);   
+        // echo'</pre>'; 
+        
         foreach ($this->dataView['list-prod'] as $row ) {
             $price  = number_format($row['price']);
             echo "<div class='items' >";
